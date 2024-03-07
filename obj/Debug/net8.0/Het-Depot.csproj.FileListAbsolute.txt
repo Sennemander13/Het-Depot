@@ -1,0 +1,14 @@
+C:\Users\31653\Desktop\Het_depot\Het-Depot\bin\Debug\net8.0\Het-Depot.exe
+C:\Users\31653\Desktop\Het_depot\Het-Depot\bin\Debug\net8.0\Het-Depot.deps.json
+C:\Users\31653\Desktop\Het_depot\Het-Depot\bin\Debug\net8.0\Het-Depot.runtimeconfig.json
+C:\Users\31653\Desktop\Het_depot\Het-Depot\bin\Debug\net8.0\Het-Depot.dll
+C:\Users\31653\Desktop\Het_depot\Het-Depot\bin\Debug\net8.0\Het-Depot.pdb
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.AssemblyInfoInputs.cache
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.AssemblyInfo.cs
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.CoreCompileInputs.cache
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.dll
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\refint\Het-Depot.dll
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.pdb
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.genruntimeconfig.cache
+C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\ref\Het-Depot.dll
