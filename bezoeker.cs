@@ -1,4 +1,4 @@
-public class Program
+public class Bezoeker
 {
     static void main()
     {

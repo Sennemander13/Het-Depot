@@ -1,4 +1,4 @@
-public class Program
+public class Afdelingshoofd
 {
     static void main()
     {

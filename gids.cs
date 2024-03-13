@@ -1,7 +1,7 @@
-public class Program
+public class Gids
 {
     static void main()
     {
-
+        
     }
 }
