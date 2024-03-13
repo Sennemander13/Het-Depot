@@ -34,3 +34,21 @@ C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\ref
 C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.pdb
 C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.genruntimeconfig.cache
 C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\ref\Het-Depot.dll
+C:\Het depot\Het-Depot\bin\Debug\net8.0\Het-Depot.exe
+C:\Het depot\Het-Depot\bin\Debug\net8.0\Het-Depot.deps.json
+C:\Het depot\Het-Depot\bin\Debug\net8.0\Het-Depot.runtimeconfig.json
+C:\Het depot\Het-Depot\bin\Debug\net8.0\Het-Depot.dll
+C:\Het depot\Het-Depot\bin\Debug\net8.0\Het-Depot.pdb
+C:\Het depot\Het-Depot\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.AssemblyReference.cache
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.AssemblyInfoInputs.cache
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.AssemblyInfo.cs
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.CoreCompileInputs.cache
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.sourcelink.json
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.Up2Date
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.dll
+C:\Het depot\Het-Depot\obj\Debug\net8.0\refint\Het-Depot.dll
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.pdb
+C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.genruntimeconfig.cache
+C:\Het depot\Het-Depot\obj\Debug\net8.0\ref\Het-Depot.dll
