@@ -36,20 +36,30 @@ public class Program
                     // Console.WriteLine(code);
                     if (uniqueCode == "0")
                     {
+                        Gids.displa();
                         // for the guides
                         // Console.WriteLine("Guides");
+                        break;
 
                     }
                     else if (code == uniqueCode) // Assuming uniqueCode.Text is accessible here
                     {
-                        // for valid users
+                        Bezoeker.displa();
+
+                        // for valid/visitors users
                         // Console.WriteLine("valid code");
                         // link to user page
+                        break;
+                    }
+                    else if (code == "99999")
+                    {
+                        Afdelingshoofd.displa();
+                        //afdelingshoofd 
+                        break;
                     }
                     else
                     {
-                        // invalid input
-                        // Console.WriteLine("this is a invalid code");
+                        Console.WriteLine("Invalid code");
                     }
                 }
             }
