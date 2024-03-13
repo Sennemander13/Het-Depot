@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj": {}
+    "C:\\Users\\31653\\Desktop\\Het_depot\\het-depot\\Het-Depot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj": {
+    "C:\\Users\\31653\\Desktop\\Het_depot\\het-depot\\Het-Depot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj",
+        "projectUniqueName": "C:\\Users\\31653\\Desktop\\Het_depot\\het-depot\\Het-Depot.csproj",
         "projectName": "Het-Depot",
-        "projectPath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj",
+        "projectPath": "C:\\Users\\31653\\Desktop\\Het_depot\\het-depot\\Het-Depot.csproj",
         "packagesPath": "C:\\Users\\31653\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\obj\\",
+        "outputPath": "C:\\Users\\31653\\Desktop\\Het_depot\\het-depot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\31653\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

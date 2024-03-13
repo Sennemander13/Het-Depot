@@ -12,3 +12,7 @@ C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\refint\Het-Depot.dll
 C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.pdb
 C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\Het-Depot.genruntimeconfig.cache
 C:\Users\31653\Desktop\Het_depot\Het-Depot\obj\Debug\net8.0\ref\Het-Depot.dll
+C:\Users\31653\Desktop\Het_depot\het-depot\obj\Debug\net8.0\Het-Depot.sourcelink.json
+C:\Users\31653\Desktop\Het_depot\het-depot\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\31653\Desktop\Het_depot\het-depot\obj\Debug\net8.0\Het-Depot.csproj.AssemblyReference.cache
+C:\Users\31653\Desktop\Het_depot\het-depot\obj\Debug\net8.0\Het-Depot.csproj.CopyComplete

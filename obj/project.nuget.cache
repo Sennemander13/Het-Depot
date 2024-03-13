@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "adF3sOP5Df7PpSK4cBWXxOjrNEBD3yU7rd+VoJ9M7KdLD+k1ciTpcwYMEtCj8FUtkIriJLvtGYq7JnJp9MZWRg==",
+  "dgSpecHash": "0w/6O8pLbv8duRFTLXr243W8ixJFDOHEGIiJrvXdZ/gR4bKik3nfb50laSdCBCyAJFlLCKtZdrDpS2PZlaynWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\31653\\Desktop\\Het_depot\\het-depot\\Het-Depot.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\31653\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
