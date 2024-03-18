@@ -60,6 +60,7 @@ public class Program
                     else
                     {
                         Console.WriteLine("Invalid code");
+                        break;
                     }
                 }
             }

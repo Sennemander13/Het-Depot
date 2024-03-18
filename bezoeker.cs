@@ -20,10 +20,28 @@ public class Bezoeker
 {
     static void main()
     {
-        Console.WriteLine();
+        Console.Write("Kies een tijdslot: ");
+        int tour_choice = Convert.ToInt32(Console.ReadLine());
+        foreach (Tour tour in Tours.tours)
+        {
+            if (tour.Id  == tour_choice)
+            {
+                BezoekerTour.tour = tour;
+                BezoekerTour.display();
+            }
+        }
     }
     public static void display()
     {
-        Console.WriteLine("Bezoekers");
+        Console.WriteLine("--------------------");
+        foreach (Tour tour in Tours.tours)
+        {
+            if (13 - tour.Spots.Count != 0)
+            {
+            Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+            }
+        }
+        Console.WriteLine("--------------------");
+        main();
     }
 }
