@@ -22,7 +22,7 @@ public class Bezoeker
     {
         Console.WriteLine();
     }
-    public static void displa()
+    public static void display()
     {
         Console.WriteLine("Bezoekers");
     }
