@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Het_Depot
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\
+=======
+build_property.ProjectDir = C:\Het depot\Het-Depot\
+>>>>>>> dadac45739a9142314dd72b8eb84276b3c619978
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
