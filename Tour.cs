@@ -1,7 +1,4 @@
 public class Tour{
-
-
-
     public string engDesc { get; set; }
     public string nlDesc { get; set; }
     public List<string> Spots;
