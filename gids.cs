@@ -13,7 +13,7 @@ public class Gids
     public static void main()
     {
         Console.WriteLine();
-        GidsTour.tour = new Tour("test start", "test end", [], []); ;
+        GidsTour.tour = new Tour("11:20", "test end", [], []);
         GidsTour.display();
     }
     public static void display()

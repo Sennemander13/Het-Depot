@@ -5,8 +5,11 @@ static class GidsTour
     public static Tour tour;
     public static void display()
     {
-        CheckVisitor(5);
-        Console.WriteLine(tour.engDesc);
+        Console.WriteLine($"Tour van {tour.Start} - {tour.End}");
+        foreach (string visitor in tour.Spots)
+        {
+            Console.WriteLine(visitor);
+        }
     }
     public static void AddID(int number)
     {
@@ -21,6 +24,4 @@ static class GidsTour
         }
         while (y != "y");
     }
-
-
 }
