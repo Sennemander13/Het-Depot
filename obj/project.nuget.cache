@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7tw5eNlnJKdnr5LpRAqc322Qp4jHkaWoPX76/8BeNCXwbZdLR4xekQy2EgG5w6BLsaUcU7wjvhusrCtsnJf7Iw==",
+  "dgSpecHash": "1y2yDMW+kNK8TYi2AHuI7x5nUyi4DGa57TbyL54ljUtH1v86ybAbFUHimx6gG6wk9wbHLAq5gv3WE3dtPPBYXA==",
   "success": true,
-  "projectFilePath": "C:\\Het depot\\Het-Depot\\Het-Depot.csproj",
+  "projectFilePath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lucas\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\Hicha\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

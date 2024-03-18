@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Het depot\\Het-Depot\\Het-Depot.csproj": {}
+    "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj": {}
   },
   "projects": {
-    "C:\\Het depot\\Het-Depot\\Het-Depot.csproj": {
+    "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Het depot\\Het-Depot\\Het-Depot.csproj",
+        "projectUniqueName": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
         "projectName": "Het-Depot",
-        "projectPath": "C:\\Het depot\\Het-Depot\\Het-Depot.csproj",
-        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
-        "outputPath": "C:\\Het depot\\Het-Depot\\obj\\",
+        "projectPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
+        "packagesPath": "C:\\Users\\Hicha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Hicha\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

@@ -52,3 +52,21 @@ C:\Het depot\Het-Depot\obj\Debug\net8.0\refint\Het-Depot.dll
 C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.pdb
 C:\Het depot\Het-Depot\obj\Debug\net8.0\Het-Depot.genruntimeconfig.cache
 C:\Het depot\Het-Depot\obj\Debug\net8.0\ref\Het-Depot.dll
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.AssemblyReference.cache
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.AssemblyInfoInputs.cache
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.AssemblyInfo.cs
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.CoreCompileInputs.cache
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.sourcelink.json
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.dll
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\refint\Het-Depot.dll
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.pdb
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\bin\Debug\net8.0\Het-Depot.exe
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\bin\Debug\net8.0\Het-Depot.deps.json
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\bin\Debug\net8.0\Het-Depot.runtimeconfig.json
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\bin\Debug\net8.0\Het-Depot.dll
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\bin\Debug\net8.0\Het-Depot.pdb
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.Up2Date
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.genruntimeconfig.cache
+C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\ref\Het-Depot.dll

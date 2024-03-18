@@ -36,7 +36,7 @@ public class Program
                     // Console.WriteLine(code);
                     if (uniqueCode == "0")
                     {
-                        Gids.displa();
+                        Gids.main();
                         // for the guides
                         // Console.WriteLine("Guides");
                         break;
@@ -53,7 +53,7 @@ public class Program
                     }
                     else if (code == "99999")
                     {
-                        Afdelingshoofd.displa();
+                        Afdelingshoofd.display();
                         //afdelingshoofd 
                         break;
                     }
