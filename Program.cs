@@ -44,7 +44,7 @@ public class Program
                     }
                     else if (code == uniqueCode) // Assuming uniqueCode.Text is accessible here
                     {
-                        Bezoeker.displa();
+                        Bezoeker.display();
 
                         // for valid/visitors users
                         // Console.WriteLine("valid code");
@@ -60,6 +60,7 @@ public class Program
                     else
                     {
                         Console.WriteLine("Invalid code");
+                        break;
                     }
                 }
             }

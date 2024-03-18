@@ -1,6 +1,6 @@
 [
     {
-        "Start": "11.20",
+        "Start": "11:20",
         "End": "12:00",
         "Spots": [
             "1111",
@@ -20,13 +20,13 @@
         "HasTakenTour": []
     },
     {
-        "Start": "11.40",
+        "Start": "11:40",
         "End": "12:20",
         "Spots": [],
         "HasTakenTour": []
     },
     {
-        "Start": "12.00",
+        "Start": "12:00",
         "End": "12:40",
         "Spots": [],
         "HasTakenTour": []
@@ -44,7 +44,7 @@
         "HasTakenTour": []
     },
     {
-        "Start": "13.00",
+        "Start": "13:00",
         "End": "13:40",
         "Spots": [],
         "HasTakenTour": []
