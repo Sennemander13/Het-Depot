@@ -36,7 +36,7 @@ public class Program
                     // Console.WriteLine(code);
                     if (uniqueCode == "0")
                     {
-                        Gids.displa();
+                        Gids.display();
                         // for the guides
                         // Console.WriteLine("Guides");
                         break;
@@ -44,7 +44,7 @@ public class Program
                     }
                     else if (code == uniqueCode) // Assuming uniqueCode.Text is accessible here
                     {
-                        Bezoeker.displa();
+                        Bezoeker.display();
 
                         // for valid/visitors users
                         // Console.WriteLine("valid code");
@@ -53,7 +53,7 @@ public class Program
                     }
                     else if (code == "99999")
                     {
-                        Afdelingshoofd.displa();
+                        Afdelingshoofd.display();
                         //afdelingshoofd 
                         break;
                     }
