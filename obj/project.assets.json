@@ -55,51 +55,26 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
-=======
-<<<<<<< HEAD
-    "C:\\Users\\Hicha\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\lucas\\.nuget\\packages\\": {}
->>>>>>> dadac45739a9142314dd72b8eb84276b3c619978
->>>>>>> b52f169dfdc8978db08541fab98d355406fa03b4
+    "C:\\Users\\31653\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
-=======
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
+      "projectUniqueName": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj",
       "projectName": "Het-Depot",
-      "projectPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
-      "packagesPath": "C:\\Users\\Hicha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\",
+      "projectPath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj",
+      "packagesPath": "C:\\Users\\31653\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Hicha\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-      "projectUniqueName": "C:\\Het depot\\Het-Depot\\Het-Depot.csproj",
->>>>>>> b52f169dfdc8978db08541fab98d355406fa03b4
-      "projectName": "Het-Depot",
-      "projectPath": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-        "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> dadac45739a9142314dd72b8eb84276b3c619978
->>>>>>> b52f169dfdc8978db08541fab98d355406fa03b4
+        "C:\\Users\\31653\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -112,11 +87,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -144,8 +114,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
