@@ -38,7 +38,7 @@ public class Bezoeker
         {
             if (13 - tour.Spots.Count != 0)
             {
-            Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+            Console.WriteLine($"|{tour.Id}| {tour.Start} - {tour.End}, {tour.Spots.Count}/13");
             }
         }
         Console.WriteLine("-----------------------");
