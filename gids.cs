@@ -10,18 +10,28 @@ of toevoegen
 */
 public class Gids
 {
-    static void main()
+    public static void main()
     {
-        Console.WriteLine();
+        Console.WriteLine("Kies een tijdslot: ");
+        int tourChoice = Convert.ToInt32(Console.ReadLine());
+        foreach (Tour tour in Tours.tours)
+        {
+            if (tour.Id == tourChoice)
+            {
+                BezoekerTour.tour = tour;
+                BezoekerTour.display();
+            }
+        }
     }
     public static void display()
     {
         Console.WriteLine("Gids");
-        Console.WriteLine("Tour 1. 11:40 - 12:20");
-        Console.WriteLine("Tour 2. 12:00 - 12:40");
-        Console.WriteLine("Tour 3. 12:20 - 13:00");
-        Console.WriteLine("Tour 4. 12:40 - 13:20");
-        Console.WriteLine("Tour 5. 13:00 - 13:40");
-        Console.ReadLine();
+        Console.WriteLine("--------------------");
+        foreach (Tour tour in Tours.tours)
+        {
+        Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+        }
+        Console.WriteLine("--------------------");
+        main();
     }
 }
