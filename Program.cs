@@ -36,7 +36,7 @@ public class Program
                     // Console.WriteLine(code);
                     if (uniqueCode == "0")
                     {
-                        Gids.display();
+                        Gids.main();
                         // for the guides
                         // Console.WriteLine("Guides");
                         break;

@@ -1,6 +1,5 @@
 using System.IO;
 using Newtonsoft.Json;
-
 public static class Tours
 {
 

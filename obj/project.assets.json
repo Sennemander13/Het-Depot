@@ -55,19 +55,46 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
+=======
+<<<<<<< HEAD
+    "C:\\Users\\Hicha\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\lucas\\.nuget\\packages\\": {}
+>>>>>>> dadac45739a9142314dd72b8eb84276b3c619978
+>>>>>>> b52f169dfdc8978db08541fab98d355406fa03b4
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
+=======
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
+      "projectName": "Het-Depot",
+      "projectPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
+      "packagesPath": "C:\\Users\\Hicha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Hicha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+      "projectUniqueName": "C:\\Het depot\\Het-Depot\\Het-Depot.csproj",
+>>>>>>> b52f169dfdc8978db08541fab98d355406fa03b4
       "projectName": "Het-Depot",
       "projectPath": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+        "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> dadac45739a9142314dd72b8eb84276b3c619978
+>>>>>>> b52f169dfdc8978db08541fab98d355406fa03b4
       ],
       "originalTargetFrameworks": [
         "net8.0"
