@@ -33,7 +33,7 @@ public class Bezoeker
     }
     public static void display()
     {
-        Console.WriteLine("--------------------");
+        Console.WriteLine("-----------------------");
         foreach (Tour tour in Tours.tours)
         {
             if (13 - tour.Spots.Count != 0)
@@ -41,7 +41,7 @@ public class Bezoeker
             Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
             }
         }
-        Console.WriteLine("--------------------");
+        Console.WriteLine("-----------------------");
         main();
     }
 }
