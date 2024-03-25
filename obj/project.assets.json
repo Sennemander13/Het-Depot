@@ -55,25 +55,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\Hicha\\.nuget\\packages\\": {}
-=======
     "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
->>>>>>> b2727cc27f84718a7e5f69a4645ce12224145c0e
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
-      "projectName": "Het-Depot",
-      "projectPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
-      "packagesPath": "C:\\Users\\Hicha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\Hicha\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
       "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
       "projectName": "Het-Depot",
       "projectPath": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
@@ -82,7 +68,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> b2727cc27f84718a7e5f69a4645ce12224145c0e
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -141,7 +126,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problem reading the cache file C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

@@ -14,6 +14,7 @@ public static class Gids
 {
     public static void main()
     {
+        display();
         Console.WriteLine("[A] Kies een tijdslot: ");
         Console.WriteLine("[B] Leeg de rondleidingen: ");
         string guideOption = Console.ReadLine()!;
@@ -26,8 +27,8 @@ public static class Gids
             {
                 if (tour.Id == tourChoice)
                 {
-                    BezoekerTour.tour = tour;
-                    BezoekerTour.display();
+                    GidsTour.tour = tour;
+                    GidsTour.display();
                 }
             }
         }
@@ -69,9 +70,8 @@ public static class Gids
         Console.WriteLine("--------------------");
         foreach (Tour tour in Tours.tours)
         {
-            Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}");
+            Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
         }
         Console.WriteLine("--------------------");
-        main();
     }
 }
