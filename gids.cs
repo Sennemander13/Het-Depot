@@ -8,28 +8,68 @@ Waarna hij een lijst te zien krijgt van alle mensen die gereserveerd hebben
 hierna moet hij alle nachecken en opnieuw scannen
 of toevoegen
 */
-public class Gids
+using Newtonsoft.Json;
+
+public static class Gids
 {
     public static void main()
     {
-        Console.WriteLine("Kies een tijdslot: ");
-        int tourChoice = Convert.ToInt32(Console.ReadLine());
-        foreach (Tour tour in Tours.tours)
+        Console.WriteLine("[A] Kies een tijdslot: ");
+        Console.WriteLine("[B] Leeg de rondleidingen: ");
+        string guideOption = Console.ReadLine()!;
+
+        if (guideOption == "A")
         {
-            if (tour.Id == tourChoice)
+            Console.WriteLine("Kies een tijdslot: ");
+            int tourChoice = Convert.ToInt32(Console.ReadLine());
+            foreach (Tour tour in Tours.tours)
             {
-                BezoekerTour.tour = tour;
-                BezoekerTour.display();
+                if (tour.Id == tourChoice)
+                {
+                    BezoekerTour.tour = tour;
+                    BezoekerTour.display();
+                }
             }
         }
+        else if (guideOption == "B")
+        {
+            emptyTours();
+        }
     }
+
+    public static void emptyTours()
+    {
+    /*
+        string json =   File.ReadAllText("ListOfTours.json");
+
+        ListOfTours listOfTours = JsonConvert.DeserializeObject<ListOfTours>(json);
+
+        listOfTours.Spots.Clear();
+        listOfTours.HasTakenTour.Clear();
+
+        string updatedJson = JsonConvert.SerializeObject(listOfTours);
+
+        File.WriteAllText("ListOfTours.json", updatedJson);
+        */
+
+        Console.WriteLine("Alle rondleidingen van vandaag zijn leeg gemaakt");
+    }
+
+    /*
+    public static void ListOfTours()
+    {
+        public List<string> {get; set;}
+
+    }
+    */
+
     public static void display()
     {
         Console.WriteLine("Gids");
         Console.WriteLine("--------------------");
         foreach (Tour tour in Tours.tours)
         {
-        Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+            Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}");
         }
         Console.WriteLine("--------------------");
         main();
