@@ -5,23 +5,56 @@ static class GidsTour
     public static Tour tour;
     public static void display()
     {
-        Console.WriteLine($"Tour van {tour.Start} - {tour.End}");
+        Console.WriteLine($"Tour ID: {tour.Id} | Tijdsinterval: {tour.Start} - {tour.End}");
         foreach (string visitor in tour.Spots)
         {
             Console.WriteLine(visitor);
         }
-    }
-    public static void AddID(int number)
-    {
+        Console.WriteLine();
+
+        while (true)
+        {
+            Console.WriteLine("Taak uitvoeren:");
+            Console.WriteLine("A: Bezoeker inchecken");
+            Console.WriteLine("B: Rondleiding starten");
+            Console.Write("Taak: ");
+            string GidsInput = Console.ReadLine();
+            Console.WriteLine();
+
+            if (GidsInput.ToUpper() == "A")
+            {
+                Console.Write("Unieke Code: ");
+                string UniqueId = Console.ReadLine();
+                CheckVisitor(UniqueId);
+            }
+
+            else if (GidsInput.ToUpper() == "B")
+            {
+                break;
+            }
+
+            else
+            {
+                Console.WriteLine($"{GidsInput} is geen optie, kies tussen A en B");
+            }
+        }
 
     }
-    public static void CheckVisitor(int number)
+
+    public static void AddID(string number)
     {
-        string y;
-        do
+        tour.HasTakenTour.Add(number);
+    }
+
+    public static void CheckVisitor(string number)
+    {
+        foreach (string UniqueIds in tour.Spots)
         {
-            y = Console.ReadLine()!;
+            if (UniqueIds == number)
+            {
+                tour.Spots.Remove(UniqueIds);
+                AddID(number);
+            }
         }
-        while (y != "y");
     }
 }

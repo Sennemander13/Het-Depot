@@ -55,16 +55,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Hicha\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\lucas\\.nuget\\packages\\": {}
->>>>>>> dadac45739a9142314dd72b8eb84276b3c619978
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
       "projectName": "Het-Depot",
       "projectPath": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
@@ -73,16 +68,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hicha\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-      "projectUniqueName": "C:\\Het depot\\Het-Depot\\Het-Depot.csproj",
-      "projectName": "Het-Depot",
-      "projectPath": "C:\\Het depot\\Het-Depot\\Het-Depot.csproj",
-      "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
-      "outputPath": "C:\\Het depot\\Het-Depot\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> dadac45739a9142314dd72b8eb84276b3c619978
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -135,5 +120,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
