@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj": {}
   },
   "projects": {
@@ -16,22 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hicha\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-    "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
-        "projectName": "Het-Depot",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> b2727cc27f84718a7e5f69a4645ce12224145c0e
         ],
         "originalTargetFrameworks": [
           "net8.0"

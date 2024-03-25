@@ -14,9 +14,16 @@ static class GidsTour
 
         while (true)
         {
+            foreach (string checkedin in tour.HasTakenTour)
+            {
+                Console.WriteLine(checkedin);
+            }
+            Console.WriteLine();
+
             Console.WriteLine("Taak uitvoeren:");
             Console.WriteLine("A: Bezoeker inchecken");
             Console.WriteLine("B: Rondleiding starten");
+            Console.WriteLine("C: Last-minute check-in")
             Console.Write("Taak: ");
             string GidsInput = Console.ReadLine();
             Console.WriteLine();
@@ -31,6 +38,11 @@ static class GidsTour
             else if (GidsInput.ToUpper() == "B")
             {
                 break;
+            }
+
+            else if (GidsInput.ToUpper() == "C")
+            {
+
             }
 
             else
@@ -52,8 +64,12 @@ static class GidsTour
         {
             if (UniqueIds == number)
             {
-                tour.Spots.Remove(UniqueIds);
                 AddID(number);
+            }
+            else
+            {
+                Console.WriteLine("ID not in spots list");
+                break;
             }
         }
     }
