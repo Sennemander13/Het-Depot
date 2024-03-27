@@ -34,9 +34,9 @@ public class Program
                 foreach (string code in listOfObjects)
                 {
                     // Console.WriteLine(code);
-                    if (uniqueCode == "0")
+                    if (uniqueCode == "0") 
                     {
-                        Gids.main();
+                        Gids.display();
                         // for the guides
                         // Console.WriteLine("Guides");
                         break;

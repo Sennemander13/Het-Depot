@@ -29,7 +29,7 @@ public class Gids
         Console.WriteLine("--------------------");
         foreach (Tour tour in Tours.tours)
         {
-        Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+            Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
         }
         Console.WriteLine("--------------------");
         main();
