@@ -45,7 +45,7 @@ public class Program
                     else if (code == uniqueCode) // Assuming uniqueCode.Text is accessible here
                     {
                         Bezoeker.display();
-
+                        BezoekerTour.id = uniqueCode;
                         // for valid/visitors users
                         // Console.WriteLine("valid code");
                         // link to user page
