@@ -1,14 +1,14 @@
 static class BezoekerTour
 {
-    public static Tour tour;
-    public static string uniqueCode;
+    public static Tour? tour;
+    public static string? uniqueCode;
 
     public static void display()
     {
         
         Console.Clear();
         Console.WriteLine("-----------------------");
-        Console.WriteLine($"{tour.Start} - {tour.End} is geselecteerd\nconformeer je keuze (ja of nee)");
+        Console.WriteLine($"{tour!.Start} - {tour.End} is geselecteerd\nconformeer je keuze (ja of nee)");
         string conformation;
         do 
         {
@@ -28,9 +28,9 @@ static class BezoekerTour
     }
     public static void AddID()
     {
-        if (!Tours.Checkif(uniqueCode) && tour.Spots.Count < 13 && !Tours.CheckifHadTour(uniqueCode))
+        if (!Tours.Checkif(uniqueCode!) && tour!.Spots.Count < 13 && !Tours.CheckifHadTour(uniqueCode!))
         {
-            tour.Spots.Add(uniqueCode);
+            tour.Spots.Add(uniqueCode!);
             Console.WriteLine($"plek gereserveerd\nRondleiding start om {tour.Start}");
             Console.Write("press enter");
             Console.ReadLine();

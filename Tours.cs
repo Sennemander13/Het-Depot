@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 public static class Tours
 {
 
-    public static List<Tour> tours;
+    public static List<Tour>? tours;
 
     public static bool isSomething;
 
@@ -28,7 +28,7 @@ public static class Tours
     }
     public static bool Checkif(string user_id)
     {
-        foreach (Tour tour in tours)
+        foreach (Tour tour in tours!)
         {
             if (tour.Spots.Contains(user_id))
             {
@@ -42,7 +42,7 @@ public static class Tours
 
     public static bool CheckifHadTour(string user_id)
     {
-        foreach (Tour tour in tours)
+        foreach (Tour tour in tours!)
         {
             if (tour.HasTakenTour.Contains(user_id))
             {

@@ -22,7 +22,7 @@ public class Bezoeker
     {
         Console.Clear();
         Console.WriteLine("-----------------------");
-        foreach (Tour tour in Tours.tours)
+        foreach (Tour tour in Tours.tours!)
         {
             if (13 - tour.Spots.Count != 0)
             {

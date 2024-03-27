@@ -5,7 +5,7 @@ static class GidsTour
     public static Tour? tour;
     public static void display()
     {
-        Console.WriteLine($"Tour ID: {tour.Id} | Tijdsinterval: {tour.Start} - {tour.End}");
+        Console.WriteLine($"Tour ID: {tour!.Id} | Tijdsinterval: {tour.Start} - {tour.End}");
         foreach (string visitor in tour.Spots)
         {
             Console.WriteLine(visitor);
@@ -55,12 +55,12 @@ static class GidsTour
 
     public static void AddID(string number)
     {
-        tour.HasTakenTour.Add(number);
+        tour!.HasTakenTour.Add(number);
     }
 
     public static void CheckVisitor(string number)
     {
-        foreach (string UniqueIds in tour.Spots)
+        foreach (string UniqueIds in tour!.Spots)
         {
             if (UniqueIds == number)
             {

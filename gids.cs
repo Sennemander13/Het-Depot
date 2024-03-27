@@ -24,7 +24,7 @@ public static class Gids
         {
             Console.WriteLine("Kies een tijdslot: ");
             int tourChoice = Convert.ToInt32(Console.ReadLine());
-            foreach (Tour tour in Tours.tours)
+            foreach (Tour tour in Tours.tours!)
             {
                 if (tour.Id == tourChoice)
                 {
@@ -41,7 +41,7 @@ public static class Gids
 
     public static void emptyTours()
     {
-        foreach (Tour tour in Tours.tours)
+        foreach (Tour tour in Tours.tours!)
         {
             tour.Spots = [];
             tour.HasTakenTour = [];
@@ -62,7 +62,7 @@ public static class Gids
     {
         Console.WriteLine("Gids");
         Console.WriteLine("--------------------");
-        foreach (Tour tour in Tours.tours)
+        foreach (Tour tour in Tours.tours!)
         {
             Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}");
         }
