@@ -1,7 +1,11 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj": {}
+=======
+    "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj": {}
+>>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
   },
   "projects": {
     "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj": {
@@ -14,8 +18,12 @@
         "outputPath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\31653\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "C:\\Users\\Hicha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
         ],
         "originalTargetFrameworks": [
           "net8.0"

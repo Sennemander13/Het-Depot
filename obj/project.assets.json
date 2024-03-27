@@ -55,20 +55,32 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\31653\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\Hicha\\.nuget\\packages\\": {}
+>>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj",
+=======
+      "projectUniqueName": "C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\Het-Depot.csproj",
+>>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
       "projectName": "Het-Depot",
       "projectPath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj",
       "packagesPath": "C:\\Users\\31653\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\31653\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+        "C:\\Users\\Hicha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -123,7 +135,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problem reading the cache file C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
     }
   ]
 }
