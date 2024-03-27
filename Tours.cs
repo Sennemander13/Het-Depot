@@ -26,5 +26,30 @@ public static class Tours
             tours = listOfObjects;
         }
     }
+    public static bool Checkif(string user_id)
+    {
+        foreach (Tour tour in tours)
+        {
+            if (tour.Spots.Contains(user_id))
+            {
+                // Console.WriteLine("It's already checked in");
+                return true; // Set flag to true if user is already checked in
+                // Exit the loop since we found a match
+            }
+        }
+        return false;
+    }
+
+    public static bool CheckifHadTour(string user_id)
+    {
+        foreach (Tour tour in tours)
+        {
+            if (tour.HasTakenTour.Contains(user_id))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

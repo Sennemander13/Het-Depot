@@ -5,31 +5,41 @@ static class BezoekerTour
 
     public static void display()
     {
+        
+        Console.Clear();
         Console.WriteLine("-----------------------");
         Console.WriteLine($"{tour.Start} - {tour.End} is geselecteerd\nconformeer je keuze (ja of nee)");
-        string conformation = Console.ReadLine()!;
-        Console.WriteLine("-----------------------");
-        AddID(uniqueCode, conformation);
-    }
-    public static void AddID(string uniqueCode, string conformation)
-    {
-        while (true)
+        string conformation;
+        do 
         {
-            if (conformation == "ja" || conformation == "Ja")
-            {
-                // nog unique code verwijderen uit UniqueCodesToday en tovoegen aan spots in de Tour.
-                Console.WriteLine($"tour: {tour.Start} - {tour.End} succesvol gereserveerd");
-                break;
-            }
-            else if (conformation == "nee" || conformation == "Nee")
-            {
-                Program.TryEnter(uniqueCode);
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Ongeldige invoer");
-            }
+            conformation = Console.ReadLine()!.ToLower();
+        } while (conformation != "nee" && conformation != "ja");
+        if (conformation == "ja")
+        {
+            AddID();
         }
+        else {
+            Console.WriteLine("Terug naar tours");
+            Console.Write("press enter");
+            Console.ReadLine();
+            Bezoeker.main();
+        }
+        // Console.WriteLine("-----------------------");
+    }
+    public static void AddID()
+    {
+        if (!Tours.Checkif(uniqueCode) && tour.Spots.Count < 13 && !Tours.CheckifHadTour(uniqueCode))
+        {
+            tour.Spots.Add(uniqueCode);
+            Console.WriteLine($"plek gereserveerd\nRondleiding start om {tour.Start}");
+            Console.Write("press enter");
+            Console.ReadLine();
+            Bezoeker.main();
+            
+        }
+        else {Console.WriteLine("Al ingechecked");
+        Console.Write("press enter");
+        Console.ReadLine();
+        Bezoeker.main();}
     }
 }
