@@ -8,21 +8,43 @@ static class BezoekerTour
         
         Console.Clear();
         Console.WriteLine("-----------------------");
-        Console.WriteLine($"{tour!.Start} - {tour.End} is geselecteerd\nconformeer je keuze (ja of nee)");
-        string conformation;
-        do 
+        Console.WriteLine($"{tour!.Start} - {tour.End} is geselecteerd");
+        if (tour.Spots.Contains(uniqueCode!))
         {
-            conformation = Console.ReadLine()!.ToLower();
-        } while (conformation != "nee" && conformation != "ja");
-        if (conformation == "ja")
-        {
-            AddID();
+            Console.WriteLine("U bent al ingecheckt op deze Rondleiding\nWilt u uitschrijven? (ja of nee)");
+            string conformation;
+            do 
+            {
+                conformation = Console.ReadLine()!.ToLower();
+            } while (conformation != "nee" && conformation != "ja");
+            if (conformation == "ja")
+            {
+                RemoveID();
+            }
+            else{
+                Console.WriteLine("Terug naar tours");
+                Console.Write("press enter");
+                Console.ReadLine();
+                Bezoeker.main();
+            }
         }
-        else {
-            Console.WriteLine("Terug naar tours");
-            Console.Write("press enter");
-            Console.ReadLine();
-            Bezoeker.main();
+        else{
+            Console.WriteLine("conformeer je keuze (ja of nee)");
+            string conformation;
+            do 
+            {
+                conformation = Console.ReadLine()!.ToLower();
+            } while (conformation != "nee" && conformation != "ja");
+            if (conformation == "ja")
+            {
+                AddID();
+            }
+            else {
+                Console.WriteLine("Terug naar tours");
+                Console.Write("press enter");
+                Console.ReadLine();
+                Bezoeker.main();
+            }
         }
         // Console.WriteLine("-----------------------");
     }
@@ -41,5 +63,14 @@ static class BezoekerTour
         Console.Write("press enter");
         Console.ReadLine();
         Bezoeker.main();}
+    }
+
+    public static void RemoveID()
+    {
+        tour!.Spots.Remove(uniqueCode!);
+        Console.WriteLine("Rondleiding geannuleerd");
+        Console.Write("press enter");
+        Console.ReadLine();
+        Bezoeker.main();
     }
 }
