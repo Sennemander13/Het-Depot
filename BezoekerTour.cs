@@ -5,7 +5,7 @@ static class BezoekerTour
 
     public static void display()
     {
-        
+
         Console.Clear();
         Console.WriteLine("-----------------------");
         Console.WriteLine($"{tour!.Start} - {tour.End} is geselecteerd");
@@ -13,7 +13,7 @@ static class BezoekerTour
         {
             Console.WriteLine("U bent al ingecheckt op deze Rondleiding\nWilt u uitschrijven? (ja of nee)");
             string conformation;
-            do 
+            do
             {
                 conformation = Console.ReadLine()!.ToLower();
             } while (conformation != "nee" && conformation != "ja");
@@ -21,17 +21,19 @@ static class BezoekerTour
             {
                 RemoveID();
             }
-            else{
+            else
+            {
                 Console.WriteLine("Terug naar tours");
                 Console.Write("press enter");
                 Console.ReadLine();
                 Bezoeker.main();
             }
         }
-        else{
-            Console.WriteLine("conformeer je keuze (ja of nee)");
+        else
+        {
+            Console.WriteLine("bevestig je keuze (ja of nee)");
             string conformation;
-            do 
+            do
             {
                 conformation = Console.ReadLine()!.ToLower();
             } while (conformation != "nee" && conformation != "ja");
@@ -39,7 +41,8 @@ static class BezoekerTour
             {
                 AddID();
             }
-            else {
+            else
+            {
                 Console.WriteLine("Terug naar tours");
                 Console.Write("press enter");
                 Console.ReadLine();
@@ -57,12 +60,15 @@ static class BezoekerTour
             Console.Write("press enter");
             Console.ReadLine();
             Bezoeker.main();
-            
+
         }
-        else {Console.WriteLine("Al ingechecked");
-        Console.Write("press enter");
-        Console.ReadLine();
-        Bezoeker.main();}
+        else
+        {
+            Console.WriteLine("Al ingechecked");
+            Console.Write("press enter");
+            Console.ReadLine();
+            Bezoeker.main();
+        }
     }
 
     public static void RemoveID()
