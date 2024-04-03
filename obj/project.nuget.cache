@@ -1,29 +1,17 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "mI/wRfIxlTlZFZk0YBCO8sJO2cs2Ny/aApd4R1wk7FOWn7HRn2DSMFBwj5ECBaO2cUbctKyb8jsldSacjKom8w==",
-=======
-  "dgSpecHash": "1y2yDMW+kNK8TYi2AHuI7x5nUyi4DGa57TbyL54ljUtH1v86ybAbFUHimx6gG6wk9wbHLAq5gv3WE3dtPPBYXA==",
->>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
   "success": true,
   "projectFilePath": "C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\Het-Depot.csproj",
   "expectedPackageFiles": [
-<<<<<<< HEAD
     "C:\\Users\\31653\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
-=======
-    "C:\\Users\\Hicha\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
->>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
   ],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Users\\31653\\Desktop\\Het_depot\\Het-Depot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "Problem reading the cache file C:\\Users\\Hicha\\OneDrive\\Documenten\\School\\Jaar 1\\Project B\\Het-Depot\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> e7653f3d852e9f6dfcb041306a01bc3ff32ffd02
     }
   ]
 }
