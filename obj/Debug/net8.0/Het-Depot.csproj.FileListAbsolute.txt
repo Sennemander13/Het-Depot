@@ -70,3 +70,5 @@ C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\bin\Debug\n
 C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.Up2Date
 C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\Het-Depot.genruntimeconfig.cache
 C:\Users\Hicha\OneDrive\Documenten\School\Jaar 1\Project B\Het-Depot\obj\Debug\net8.0\ref\Het-Depot.dll
+C:\Users\31653\Desktop\Het_depot\Het-Depot\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\31653\Desktop\Het_depot\Het-Depot\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll

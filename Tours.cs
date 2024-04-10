@@ -52,4 +52,29 @@ public static class Tours
         return false;
     }
 
+    public static bool IsValidCode(string id)
+    {
+        using (StreamReader reader = new StreamReader("UniqueCodesToday.json"))
+        {
+            // Read the JSON file as a string
+            string fileContents = reader.ReadToEnd();
+
+            // Deserialize the JSON string into a list of strings
+            List<string> listOfObjects = JsonConvert.DeserializeObject<List<string>>(fileContents)!;
+
+            if (listOfObjects != null)
+            {
+                foreach (string code in listOfObjects)
+                {
+                    if (id == code)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+    }
+
 }

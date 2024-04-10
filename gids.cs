@@ -14,27 +14,39 @@ public static class Gids
 {
     public static void main()
     {
-        display();
-        Console.WriteLine("[A] Kies een tijdslot: ");
-        Console.WriteLine("[B] Leeg de rondleidingen: ");
-        string guideOption = Console.ReadLine()!;
-
-        if (guideOption == "A")
+        while (true)
         {
-            Console.WriteLine("Kies een tijdslot: ");
-            int tourChoice = Convert.ToInt32(Console.ReadLine());
-            foreach (Tour tour in Tours.tours!)
+            Console.Clear();
+            display();
+            Console.WriteLine("[A] Kies een tijdslot: ");
+            Console.WriteLine("[B] Leeg de rondleidingen: ");
+            Console.WriteLine("[C] Log uit");
+            string guideOption = Console.ReadLine()!.ToUpper();
+
+            if (guideOption == "A")
             {
-                if (tour.Id == tourChoice)
+                Console.WriteLine("Kies een tijdslot: ");
+                int tourChoice = Convert.ToInt32(Console.ReadLine());
+                foreach (Tour tour in Tours.tours!)
                 {
-                    GidsTour.tour = tour;
-                    GidsTour.display();
+                    if (tour.Id == tourChoice)
+                    {
+                        GidsTour.tour = tour;
+                        GidsTour.display();
+                    }
                 }
             }
-        }
-        else if (guideOption == "B")
-        {
-            emptyTours();
+            else if (guideOption == "B")
+            {
+                emptyTours();
+            }
+            else if (guideOption == "C")
+            {
+                break;
+            }
+            else {
+                Console.WriteLine("Invalid option");
+            }
         }
     }
 
@@ -48,14 +60,6 @@ public static class Gids
 
         Console.WriteLine("Alle rondleidingen van vandaag zijn leeg gemaakt");
     }
-
-    /*
-    public static void ListOfTours()
-    {
-        public List<string> {get; set;}
-
-    }
-    */
 
     public static void display()
     {
