@@ -9,7 +9,7 @@ public class Program
         {
             Console.Clear();
             Console.WriteLine("--------------------");
-            Console.WriteLine("Welkom log in met unique id");
+            Console.WriteLine("Welkom log in met uw unique id");
 
             Console.Write("unique code: ");
             string user_id = Console.ReadLine()!;
@@ -35,7 +35,7 @@ public class Program
                 foreach (string code in listOfObjects)
                 {
                     // Console.WriteLine(code);
-                    if (uniqueCode == "0") 
+                    if (uniqueCode == "0")
                     {
                         Gids.main();
                         // for the guides

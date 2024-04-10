@@ -26,15 +26,15 @@ public class Bezoeker
         {
             if (13 - tour.Spots.Count != 0)
             {
-            Console.WriteLine($"|{tour.Id}| {tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+                Console.WriteLine($"|{tour.Id}| {tour.Start} - {tour.End}, {tour.Spots.Count}/13");
             }
         }
         Console.WriteLine("-----------------------");
-        Console.Write("Kies een tijdslot: ");
+        Console.Write("Kies een rondleiding: ");
         int tour_choice = Convert.ToInt32(Console.ReadLine());
         foreach (Tour tour in Tours.tours)
         {
-            if (tour.Id  == tour_choice)
+            if (tour.Id == tour_choice)
             {
                 BezoekerTour.tour = tour;
                 BezoekerTour.display();
