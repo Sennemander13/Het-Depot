@@ -3,7 +3,7 @@
 
 public class Program
 {
-    static void Main(string[] args)
+    public static void Main()
     {
         while (true)
         {
@@ -40,7 +40,7 @@ public class Program
                         Gids.main();
                         // for the guides
                         // Console.WriteLine("Guides");
-                        break;
+                        // break;
 
                     }
                     else if (code == uniqueCode) // Assuming uniqueCode.Text is accessible here
@@ -50,18 +50,18 @@ public class Program
                         // for valid/visitors users
                         // Console.WriteLine("valid code");
                         // link to user page
-                        break;
+                        // break;
                     }
                     else if (code == "99999")
                     {
                         Afdelingshoofd.display();
                         //afdelingshoofd 
-                        break;
+                        // break;
                     }
                     else
                     {
                         Console.WriteLine("Invalid code");
-                        break;
+                        // break;
                     }
                 }
             }

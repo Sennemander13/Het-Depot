@@ -18,26 +18,36 @@ Reserveren moet kunnen als hij nog nergens ingeschreven staat
 */
 public class Bezoeker
 {
+
     public static void main()
     {
-        Console.Clear();
-        Console.WriteLine("-----------------------");
-        foreach (Tour tour in Tours.tours!)
-        {
-            if (13 - tour.Spots.Count != 0)
+        bool x = true;
+        while (x){
+            Console.Clear();
+            Console.WriteLine("-----------------------");
+            foreach (Tour tour in Tours.tours!)
             {
-                Console.WriteLine($"|{tour.Id}| {tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+                if (13 - tour.Spots.Count != 0)
+                {
+                    Console.WriteLine($"|{tour.Id}| {tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+                }
             }
-        }
-        Console.WriteLine("-----------------------");
-        Console.Write("Kies een rondleiding: ");
-        int tour_choice = Convert.ToInt32(Console.ReadLine());
-        foreach (Tour tour in Tours.tours)
-        {
-            if (tour.Id == tour_choice)
+            Console.WriteLine("-----------------------");
+            Console.WriteLine("[A] log uit");
+            Console.Write("Kies een rondleiding: ");
+            string tour_choice = Console.ReadLine().ToUpper();
+            if (tour_choice == "A")
             {
-                BezoekerTour.tour = tour;
-                BezoekerTour.display();
+                Program.Main();
+            }
+            foreach (Tour tour in Tours.tours)
+            {
+                if (tour.Id == tour_choice)
+                {
+                    BezoekerTour.tour = tour;
+                    BezoekerTour.display();
+                    // break;
+                }
             }
         }
     }

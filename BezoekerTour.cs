@@ -5,78 +5,107 @@ static class BezoekerTour
 
     public static void display()
     {
-
-        Console.Clear();
-        Console.WriteLine("-----------------------");
-        Console.WriteLine($"{tour!.Start} - {tour.End} is geselecteerd");
-        if (tour.Spots.Contains(uniqueCode!))
-        {
-            Console.WriteLine("U bent al ingecheckt op deze Rondleiding\nWilt u uitschrijven? (ja of nee)");
-            string conformation;
-            do
+        bool x = true;
+        while (x){
+            Console.Clear();
+            Console.WriteLine("-----------------------");
+            Console.WriteLine($"{tour!.Start} - {tour.End} is geselecteerd");
+            if (!Tours.Checkif(uniqueCode) && tour.Spots.Count < 13 && !Tours.CheckifHadTour(uniqueCode))
             {
-                conformation = Console.ReadLine()!.ToLower();
-            } while (conformation != "nee" && conformation != "ja");
-            if (conformation == "ja")
-            {
-                RemoveID();
-            }
-            else
-            {
-                Console.WriteLine("Terug naar tours");
-                Console.Write("press enter");
+                tour.Spots.Add(uniqueCode);
+                Console.WriteLine("Plek gereserveerd");
                 Console.ReadLine();
-                Bezoeker.main();
+                break;
+                x = false;
             }
-        }
-        else
-        {
-            Console.WriteLine("bevestig je keuze (ja of nee)");
-            string conformation;
-            do
+            // voor als hij al ingecheckt is op deze rondleidng
+            if (tour.Spots.Contains(uniqueCode!))
             {
-                conformation = Console.ReadLine()!.ToLower();
-            } while (conformation != "nee" && conformation != "ja");
-            if (conformation == "ja")
-            {
-                AddID();
+                Console.WriteLine("U bent al ingecheckt op deze Rondleiding\nWilt u uitschrijven? (ja of nee)");
+                string conformation;
+                do
+                {
+                    conformation = Console.ReadLine()!.ToLower();
+                } while (conformation != "nee" && conformation != "ja");
+                if (conformation == "ja")
+                {
+                    RemoveID();
+                }
+                else
+                {
+                    Console.WriteLine("Terug naar tours\npress enter");
+                    Console.ReadLine();
+                    x = false;
+                }
+            break;
+
             }
-            else
-            {
-                Console.WriteLine("Terug naar tours");
-                Console.Write("press enter");
+
+            if (Tours.Checkif(uniqueCode)){
+                Console.WriteLine("U bent al ingechekt op andere Rondleiding\nWilt u herboekern?");
+                // herboeken?
+                string conformation;
+                do
+                {
+                    conformation = Console.ReadLine()!.ToLower();
+                } while (conformation != "nee" && conformation != "ja");
+                if (conformation == "ja")
+                {
+                    foreach (Tour tourt in Tours.tours)
+                    {
+                        if (tourt.Spots.Contains(uniqueCode))
+                        {
+                            RemoveIDSpecificTour(tourt);
+                        }
+                    }
+                    tour.Spots.Add(uniqueCode!);
+                    x = false;
+                }
+                break;
+
+            }
+            if (tour.Spots.Count == 13){
+                Console.WriteLine("De rondleiding is vol");
+                Console.WriteLine("Terug naar tours\npress enter");
                 Console.ReadLine();
-                Bezoeker.main();
+                x = false;
+                break;
+
             }
-        }
-        // Console.WriteLine("-----------------------");
-    }
-    public static void AddID()
-    {
-        if (!Tours.Checkif(uniqueCode!) && tour!.Spots.Count < 13 && !Tours.CheckifHadTour(uniqueCode!))
-        {
-            tour.Spots.Add(uniqueCode!);
-            Console.WriteLine($"plek gereserveerd\nRondleiding start om {tour.Start}");
-            Console.Write("press enter");
+            if (Tours.CheckifHadTour(uniqueCode)){
+                Console.WriteLine("Rondleiding al gehad");
+                Console.WriteLine("Terug naar tours\npress enter");
+                Console.ReadLine();
+                x = false;
+                break;
+
+            }
+            
+            
+
+            Console.WriteLine("Invalid");
             Console.ReadLine();
-            Bezoeker.main();
+            x = false;
+            break;
 
         }
-        else
-        {
-            Console.WriteLine("Al ingechecked");
-            Console.Write("press enter");
-            Console.ReadLine();
-            Bezoeker.main();
-        }
-    }
 
+    }
     public static void RemoveID()
     {
         tour!.Spots.Remove(uniqueCode!);
         Console.WriteLine("Rondleiding geannuleerd");
         Console.Write("press enter");
         Console.ReadLine();
-        Bezoeker.main();
+        // Bezoeker.main();
+    }
+
+    public static void RemoveIDSpecificTour(Tour tour)
+    {
+        tour!.Spots.Remove(uniqueCode!);
+        Console.WriteLine("Rondleiding Herboekt");
+        Console.Write("press enter");
+        Console.ReadLine();
+        // Bezoeker.main();
     }
 }

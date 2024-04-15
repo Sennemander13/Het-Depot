@@ -14,19 +14,26 @@ public static class Gids
 {
     public static void main()
     {
-        while (true)
+        bool x = true;
+        while (x)
         {
             Console.Clear();
-            display();
-            Console.WriteLine("[A] Kies een tijdslot: ");
+            Console.WriteLine("Gids");
+            Console.WriteLine("--------------------");
+            foreach (Tour tour in Tours.tours!)
+            {
+                Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+            }
+            Console.WriteLine("--------------------");
+            Console.WriteLine("[A] Kies een Rondleiding: ");
             Console.WriteLine("[B] Leeg de rondleidingen: ");
             Console.WriteLine("[C] Log uit");
             string guideOption = Console.ReadLine()!.ToUpper();
 
             if (guideOption == "A")
             {
-                Console.WriteLine("Kies een tijdslot: ");
-                int tourChoice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Kies een Rondleiding: ");
+                string tourChoice = Console.ReadLine();
                 foreach (Tour tour in Tours.tours!)
                 {
                     if (tour.Id == tourChoice)
@@ -42,10 +49,13 @@ public static class Gids
             }
             else if (guideOption == "C")
             {
-                break;
+                x = false;
+                Program.Main();
             }
             else {
                 Console.WriteLine("Invalid option");
+                x = false;
+                break;
             }
         }
     }
@@ -61,14 +71,4 @@ public static class Gids
         Console.WriteLine("Alle rondleidingen van vandaag zijn leeg gemaakt");
     }
 
-    public static void display()
-    {
-        Console.WriteLine("Gids");
-        Console.WriteLine("--------------------");
-        foreach (Tour tour in Tours.tours!)
-        {
-            Console.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
-        }
-        Console.WriteLine("--------------------");
-    }
 }

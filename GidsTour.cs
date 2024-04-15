@@ -6,22 +6,12 @@ static class GidsTour
     public static Tour? tour;
     public static void display()
     {
-        while (true)
+        bool x = true;
+        while (x)
         {
             Console.Clear();
-            Console.WriteLine($"Tour ID: {tour!.Id} | Tijdsinterval: {tour.Start} - {tour.End}           ");
-            // foreach (string visitor in tour.Spots)
-            // {
-            //     Console.WriteLine(visitor);
-            // }
-            // Console.WriteLine();
+            Console.WriteLine($"Tour ID: {tour!.Id} | Tijdsinterval: {tour.Start} - {tour.End}       {tour.Spots.Count}   ");
 
-            // Console.WriteLine("Mensen die er daadwerkelijk zijn:");
-            // foreach (string checkedin in tour.HasTakenTour)
-            // {
-            //     Console.WriteLine(checkedin);
-            // }
-            // Console.WriteLine();
             int maxLength = Math.Max(tour.Spots.Count, tour.HasTakenTour.Count);
             Console.WriteLine("Gereserveerde mensen:        Ingecheckte mensen:");
 
@@ -47,21 +37,21 @@ static class GidsTour
                 string UniqueId = Console.ReadLine()!;
                 AddID(UniqueId);
                 // CheckVisitor(UniqueId);
+                Console.ReadLine();
+                // x = false;
+                // break;
             }
 
             else if (GidsInput.ToUpper() == "B")
             {
+                x = false;
                 break;
             }
-
-            else if (GidsInput.ToUpper() == "C")
-            {
-
-            }
-
             else
             {
                 Console.WriteLine($"{GidsInput} is geen optie, kies tussen A en B");
+                // x = false;
+                // break;
             }
         }
 
@@ -69,19 +59,42 @@ static class GidsTour
 
     public static void AddID(string number)
     {
-        if (Tours.IsValidCode(number) && !Tours.CheckifHadTour(number))
+        // als een boezoekers code in de lijst van codes staat,
+        // die we elke dag krijgen van afdelingshoofd
+        if (Tours.IsValidCode(number))
         {
-            // when everything is checked add
-            tour!.HasTakenTour.Add(number);
-            string audioFilePath = "beep-07a.wav";
-            try{
-                SoundPlayer soundPlayer = new SoundPlayer(audioFilePath);
+            // checkt of de bezoeker al een tour heeft gedaan
+            if (!Tours.CheckifHadTour(number)){
+                // als de bezoeker ergens anders heeft ingeschreven
+                // maar nog geen rondleiding heeft gedaan
+                // dan kan hij ingecheckt worden op deze rondleiding en
+                // wordt zijn reservering weg gehaald
+                foreach (Tour atour in Tours.tours)
+                {
+                    if (tour.Spots.Contains(number))
+                    {
+                        atour!.Spots.Remove(number!);
+                    }
+                }
+                // Bezoeker wordt ingecheckt op deze tour
+                tour!.HasTakenTour.Add(number);
+                // speelt het checking geluid af
+                SoundPlayer soundPlayer = new SoundPlayer("beep-07a.wav");
                 soundPlayer.Play();
-
-                // Keep the console application running until the audio finishes playing
+                // zorgt dat de applicatie niet opeens afsluit tijdens afspelen
                 while (soundPlayer.IsLoadCompleted == false) { }
             }
-            catch (Exception ex){Console.WriteLine("Error: " + ex.Message);}
+            // als de bezoeker al een rondleiding heeft gedaan wordt dat gemeld
+            else if (Tours.CheckifHadTour(number)){
+            Console.WriteLine("Rondleiding al gehad");
+            Console.WriteLine("Terug naar tours\npress enter");
+            Console.ReadLine();
+            }
+        }
+        // anders is het een invalid code
+        else{
+            Console.WriteLine("Onjuiste code\npress enter");
+            Console.ReadLine();
         }
         
         
