@@ -1,10 +1,17 @@
 namespace DepotTest.Test;
 
 [TestClass]
-public class UnitTest1
+public class GidsTest
 {
     [TestMethod]
     public void TestMethod1()
     {
+        //arrange
+        Gids gids = new Gids();
+
+        //act
+
+        //assert
+
     }
 }
