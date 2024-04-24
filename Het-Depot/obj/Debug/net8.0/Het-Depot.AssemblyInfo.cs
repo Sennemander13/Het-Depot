@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Het-Depot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+673e8b369df884d8848a64beb6115fcd52304076")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+221d366452b161e6d9ea37657787cddbf5e54e3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Het-Depot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Het-Depot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

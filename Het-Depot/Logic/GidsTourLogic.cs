@@ -22,7 +22,7 @@ public static class GidsTourLogic
         {
             Program.world.Write("Unieke Code: ");
             string UniqueId;
-            do 
+            do
             {
                 UniqueId = Program.world.ReadLine()!;
                 AddID(UniqueId, tour);
@@ -52,10 +52,10 @@ public static class GidsTourLogic
                 // soundPlayer.Play();
                 // // zorgt dat de applicatie niet opeens afsluit tijdens afspelen
                 // while (soundPlayer.IsLoadCompleted == false) { }
-                Program.world.WriteLine("Bezoeker toegevoegd");
+                Program.world.WriteLine("Bezoeker is ingecheckt voor rondleiding");
             }
-            else {Program.world.WriteLine("Bezoeker heeft al een rondleiding gehad");}
+            else { Program.world.WriteLine("Bezoeker heeft al een rondleiding gehad"); }
         }
-        else { Program.world.WriteLine("Onjuiste code");}
+        else { Program.world.WriteLine("Onjuiste code"); }
     }
 }
