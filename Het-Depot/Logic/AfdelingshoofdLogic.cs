@@ -51,8 +51,28 @@ public static class AfdelingshoofdLogic
         }
         else if (userInput == "C")
         {
-            Program.Main();
+            Program.world.WriteLine("Lijst van gidsen nu:");
+            foreach (string gids in DataModel.guideCodes!)
+            {
+                Program.world.WriteLine(gids);
+            }
+            Program.world.WriteLine("wat wilt u doen met deze lijst:\n[A] Gids toevoegen\n[B] Gids verwijderen\n[C] terug");
+            string keuze = Program.world.ReadLine().ToUpper();
+            if (keuze == "A"){
+                Program.world.WriteLine("Welke code wilt u toevoegen:");
+                string code = Program.world.ReadLine()!;
+                DataModel.guideCodes.Add(code);
+                Console.WriteLine("Gids toegevoegd");
+            }
+            else if (keuze == "B")
+            {
+                Program.world.WriteLine("Welke gids wilt u verwijderen (gids code)");
+                string gidscode = Program.world.ReadLine();
+                if (DataModel.guideCodes.Contains(gidscode)) { DataModel.guideCodes.Remove(gidscode);}
+                else {Program.world.WriteLine("Ongeldige code");}
+            }
         }
+        else if ( userInput == "D") { Program.Main();}
     }
 
     public static void ChangeATour(string keuze)
