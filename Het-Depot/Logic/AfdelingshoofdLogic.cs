@@ -72,7 +72,7 @@ public static class AfdelingshoofdLogic
                 else {Program.world.WriteLine("Ongeldige code");}
             }
         }
-        else if ( userInput == "D") { Program.Main();}
+        else if ( userInput == "D") { return; }
     }
 
     public static void ChangeATour(string keuze)

@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json;
 public static class DataModel
 {
     public static List<Tour>? listoftours;
@@ -15,44 +15,33 @@ public static class DataModel
     private static void getListOfTours()
     {
         // Method logic here
-        using (StreamReader reader = new("DataSources/ListOfTours.json"))
-        {
-            // Read the JSON file as a string
-            string fileContents = reader.ReadToEnd();
+        // Read the entire content of the file as a single string
+        string fileContents = Program.world.ReadAllText("DataSources/ListOfTours.json");
 
-            // Deserialize the JSON string into a list of strings
-            List<Tour> listOfObjects = JsonConvert.DeserializeObject<List<Tour>>(fileContents)!;
-
-            listoftours = listOfObjects;
-        }
+        // Deserialize the JSON content into a list of Tour objects
+        List<Tour> listOfTours = JsonSerializer.Deserialize<List<Tour>>(fileContents)!;
+        
+        listoftours = listOfTours;
     }
 
     private static void getListOfVisitorCodes()
     {
-        using(StreamReader reader = new("DataSources/UniqueCodesToday.json"))
-        {
-            // Read the JSON file as a string
-            string fileContents = reader.ReadToEnd();
+        string fileContents = Program.world.ReadAllText("DataSources/UniqueCodesToday.json");
 
-            // Deserialize the JSON string into a list of strings
-            List<string> listOfObjects = JsonConvert.DeserializeObject<List<string>>(fileContents)!;
+        List<string> listofvisitors = JsonSerializer.Deserialize<List<string>>(fileContents)!;
 
-            visitorCodes = listOfObjects;
-        }
+        visitorCodes = listofvisitors;
     }
 
     private static void getListofGuideCodes()
     {
-        using(StreamReader reader = new("DataSources/GidsCodes.json"))
-        {
-            // Read the JSON file as a string
-            string fileContents = reader.ReadToEnd();
+        // Read the JSON file as a string
+        string fileContents = Program.world.ReadAllText("DataSources/GidsCodes.json");
 
-            // Deserialize the JSON string into a list of strings
-            List<string> listOfObjects = JsonConvert.DeserializeObject<List<string>>(fileContents)!;
+        // Deserialize the JSON string into a list of strings
+        List<string> listOfObjects = JsonSerializer.Deserialize<List<string>>(fileContents)!;
 
-            guideCodes = listOfObjects;
-        }
+        guideCodes = listOfObjects;
     }
     
 }

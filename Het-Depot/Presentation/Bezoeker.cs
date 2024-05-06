@@ -11,10 +11,10 @@ public static class Bezoeker
             Program.world.WriteLine("--------------------");
             Program.world.WriteLine("[A] Kies een rondleiding");
             Program.world.WriteLine("[B] Log uit");
-            string BezoekerKeuze = Program.world.ReadLine()!.ToUpper();
+            string BezoekerKeuze = Program.world.ReadLine().ToUpper();
             BezoekerTour.BezoekerCode = BezoekerCode;
             BezoekersLogic.BezoekersMenuOption(BezoekerKeuze);
-            Program.world.ReadLine();
+            break;
         }
     }
 }

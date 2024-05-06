@@ -9,7 +9,7 @@ public static class BezoekersLogic
         else if (keuze == "B")
         {
             Bezoeker.BezoekerCode = default;
-            Program.Main();
+            // Program.Main();
         }
     }
     public static void ChooseTour()
