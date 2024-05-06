@@ -3,7 +3,6 @@
     public static IWorld world = new RealWorld();
     public static void Main()
     {        
-        
         while (true){
             world.Clear();
             world.WriteLine("--------------------");
@@ -14,6 +13,7 @@
             {break;}
             BaseLogic.Login(code);
         }
+
     }
 
 }
