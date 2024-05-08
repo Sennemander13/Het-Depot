@@ -4,60 +4,68 @@ public static class AfdelingshoofdLogic
     {
         if (userInput == "A")
         {
+            string keuze;
+            do{
             BaseLogic.DisplayRondleidingen();
             Program.world.WriteLine("Wilt u een rondleiding:\n[A] Toevoegen\n[B] Verwijderen\n[C] Aanpassen\n[D] Terug");
-            string keuze = Program.world.ReadLine()!.ToLower();
+            keuze = Program.world.ReadLine()!.ToLower();
             ChangeATour(keuze);
+            } while (keuze != "d");
         }
         else if (userInput == "B")
         {
-            DisplayCodes();
-            Program.world.WriteLine("[A] Leeghalen\n[B] Toevoegen");
-            string keuze = Program.world.ReadLine()!.ToUpper();
-            if (keuze == "A")
-            {
-                DataModel.visitorCodes = new List<string>();;
-            }
-            else if (keuze == "B")
-            {
-                Program.world.WriteLine("[A] Een voor een [B] code,code,code");
-                string keuze2 = Program.world.ReadLine()!.ToUpper();
-                if (keuze2 == "A")
+            string keuze;
+            do {
+                DisplayCodes();
+                Program.world.WriteLine("[A] Leeghalen\n[B] Toevoegen\n[C] Terug");
+                keuze = Program.world.ReadLine()!.ToUpper();
+                if (keuze == "A")
                 {
-                    string code;
-                    do
-                    {
-                        Program.world.WriteLine("Welke code wilt u toevoegen:");
-                        code = Program.world.ReadLine()!.ToLower();
-                        DataModel.visitorCodes!.Add(code);
-
-                    } while (code != "");
+                    DataModel.visitorCodes = new List<string>();;
                 }
-                else if (keuze2 == "B")
+                else if (keuze == "B")
                 {
-                    string codes;
-                    do
+                    Program.world.WriteLine("[A] Een voor een [B] code,code,code [C] Terug");
+                    string keuze2 = Program.world.ReadLine()!.ToUpper();
+                    if (keuze2 == "A")
                     {
-                        Program.world.WriteLine("Welke codes wilt u toevoegen: (code,code,code,...)");
-                        codes = Program.world.ReadLine()!.ToLower();
-                        List<string> visitorCodes = codes.Split(",").ToList();
-                        // DataModel.visitorCodes!.Add(code);
-                        foreach (string code in visitorCodes)
-                        { DataModel.visitorCodes!.Add(code);}
+                        string code;
+                        do
+                        {
+                            Program.world.WriteLine("Welke code wilt u toevoegen:");
+                            code = Program.world.ReadLine()!.ToLower();
+                            DataModel.visitorCodes!.Add(code);
 
-                    } while (codes != "");
+                        } while (code != "");
+                    }
+                    else if (keuze2 == "B")
+                    {
+                        string codes;
+                        do
+                        {
+                            Program.world.WriteLine("Welke codes wilt u toevoegen: (code,code,code,...)");
+                            codes = Program.world.ReadLine()!.ToLower();
+                            List<string> visitorCodes = codes.Split(",").ToList();
+                            // DataModel.visitorCodes!.Add(code);
+                            foreach (string code in visitorCodes)
+                            { DataModel.visitorCodes!.Add(code);}
+
+                        } while (codes != "");
+                    }
                 }
-            }
+            } while (keuze != "C");
         }
         else if (userInput == "C")
         {
+            string keuze;
+            do{
             Program.world.WriteLine("Lijst van gidsen nu:");
             foreach (string gids in DataModel.guideCodes!)
             {
                 Program.world.WriteLine(gids);
             }
             Program.world.WriteLine("wat wilt u doen met deze lijst:\n[A] Gids toevoegen\n[B] Gids verwijderen\n[C] terug");
-            string keuze = Program.world.ReadLine().ToUpper();
+            keuze = Program.world.ReadLine().ToUpper();
             if (keuze == "A"){
                 Program.world.WriteLine("Welke code wilt u toevoegen:");
                 string code = Program.world.ReadLine()!;
@@ -71,8 +79,9 @@ public static class AfdelingshoofdLogic
                 if (DataModel.guideCodes.Contains(gidscode)) { DataModel.guideCodes.Remove(gidscode);}
                 else {Program.world.WriteLine("Ongeldige code");}
             }
+            } while (keuze != "C");
         }
-        else if ( userInput == "D") { return; }
+        else if ( userInput == "D") {return;}
     }
 
     public static void ChangeATour(string keuze)

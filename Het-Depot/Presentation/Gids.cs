@@ -3,8 +3,8 @@ public static class Gids
     public static string? GidsCode;
     public static void Display()
     {
-        while (true)
-        {
+        string userInput;
+        do{
             Program.world.Clear();
             Program.world.WriteLine($"Welkom {GidsCode}");
             Program.world.WriteLine("--------------------");
@@ -13,8 +13,8 @@ public static class Gids
             Program.world.WriteLine("[B] Leeg de rondleidingen");
             Program.world.WriteLine("[C] Log uit");
             Program.world.WriteLine("--------------------");
-            string userInput = Program.world.ReadLine()!.ToUpper();
+            userInput = Program.world.ReadLine()!.ToUpper();
             GidsLogic.GuideMenuOption(userInput);
-        }
+        }while (userInput != "C");
     }
 }

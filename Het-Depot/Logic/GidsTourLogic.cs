@@ -11,7 +11,7 @@ public static class GidsTourLogic
             string item1 = i < tour.Spots.Count ? tour.Spots[i] : "";
             string item2 = i < tour.HasTakenTour.Count ? tour.HasTakenTour[i] : "";
 
-            Program.world.WriteLine($"{item1,-28} {item2,-28}");
+            Program.world.WriteLine($"{item1,-28} {item2}");
         }
 
     }

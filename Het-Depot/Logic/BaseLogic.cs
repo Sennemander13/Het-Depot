@@ -30,6 +30,8 @@ public static class BaseLogic
         {
             Afdelingshoofd.Display();
         }
+        else if (code == "quit")
+        {return;}
         else {
             Program.world.WriteLine("Ongeldige code");
         }
@@ -42,5 +44,5 @@ public static class BaseLogic
             Program.world.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
         }
     }
-    
+
 }

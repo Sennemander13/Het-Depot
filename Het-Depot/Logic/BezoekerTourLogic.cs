@@ -6,6 +6,7 @@ public static class BezoekerTourLogic
         {
             Program.world.WriteLine("U heeft al een rondleiding gedaan");
             Program.world.WriteLine("Kom morgen terug");
+            Console.ReadLine();
         }
         else if (tour.Spots.Contains(code))
         {

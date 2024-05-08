@@ -2,18 +2,16 @@
 {
     public static IWorld world = new RealWorld();
     public static void Main()
-    {        
-        while (true){
+    {
+        string code;
+        do{
             world.Clear();
             world.WriteLine("--------------------");
             world.WriteLine("Welkom scan uw code");
             world.Write("Code: ");
-            string code = world.ReadLine()!;
-            if (code == "quit") 
-            {break;}
+            code = world.ReadLine()!;
             BaseLogic.Login(code);
-        }
-
+        } while (code != "quit");
     }
 
 }
