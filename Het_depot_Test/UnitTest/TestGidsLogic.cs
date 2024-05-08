@@ -1,7 +1,6 @@
 [TestClass]
 public class TestGidsLogic
 {
-#
     [TestMethod]
     public void TestChoosingTour()
     {
