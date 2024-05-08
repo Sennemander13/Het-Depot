@@ -57,3 +57,12 @@ C:\Het depot\Het-Depot\Het-Depot\obj\Debug\net8.0\refint\Het-Depot.dll
 C:\Het depot\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.pdb
 C:\Het depot\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.genruntimeconfig.cache
 C:\Het depot\Het-Depot\Het-Depot\obj\Debug\net8.0\ref\Het-Depot.dll
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.AssemblyInfo.cs
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.sourcelink.json
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.dll
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\refint\Het-Depot.dll
+C:\Users\Lenovo\Documents\School\Jaar 1\Project B\Het-Depot\Het-Depot\obj\Debug\net8.0\Het-Depot.pdb
