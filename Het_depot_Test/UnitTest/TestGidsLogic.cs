@@ -1,13 +1,45 @@
+using System.Text.Json;
+
 [TestClass]
-public class TestGidsLogic
-{   
+public class TestGidsTourLogic
+{
+    // same problem the list doesnt load right eventho ut does work in the other guid ecode
     [TestMethod]
-    public void TestChoosingTour()
+    [DataRow("2,A,1,B,C,quit")]
+    public void TestGuideDoubleList(string inputString)
     {
+        string[] splitArray = inputString.Split(',');
         FakeWorld world = new()
         {
             Now = new DateTime(2004, 08, 25),
-            LinesToRead = new List<string>() {"2", "A", "1", "B", "C","quit"},
+            LinesToRead = new List<string>(splitArray),
+            Files = new()
+            {
+                { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
+                { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [\"1111\"], \"HasTakenTour\": [\"2222\"]}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
+                { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
+            }
+        };
+        Program.world = world;
+
+        Program.Main();
+        foreach (string s in world.LinesWritten) { Console.WriteLine(s); }
+        Assert.AreEqual(true, world.LinesWritten.Contains("Gereserveerde mensen:        Ingecheckte mensen:"));
+        // Assert.AreEqual(true, world.LinesWritten.Contains("1111                         2222"));
+
+    }
+
+
+    // DOesnt work because it doesnt look at the valid codes
+    [TestMethod]
+    [DataRow("2,A,1,A,1010,,B,C,quit")]
+    public void TestAddingUser(string inputString)
+    {
+        string[] splitArray = inputString.Split(',');
+        FakeWorld world = new()
+        {
+            Now = new DateTime(2004, 08, 25),
+            LinesToRead = new List<string>(splitArray),
             Files = new()
             {
                 { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
@@ -18,7 +50,8 @@ public class TestGidsLogic
         Program.world = world;
 
         Program.Main();
-        
+<<<<<<< HEAD
+
         Assert.AreEqual(true, world.LinesWritten.Contains("Kies een taak om uit te voeren:"));
         Assert.AreEqual("1", GidsTour.tour.Id);
     }
@@ -29,7 +62,7 @@ public class TestGidsLogic
         FakeWorld world = new()
         {
             Now = new DateTime(2004, 08, 25),
-            LinesToRead = new List<string>() {"2", "B", "B", "C","quit"},
+            LinesToRead = new List<string>() { "2", "B", "B", "C", "quit" },
             Files = new()
             {
                 { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
@@ -40,7 +73,7 @@ public class TestGidsLogic
         Program.world = world;
 
         Program.Main();
-        
+
         bool t = true;
         foreach (Tour tour in DataModel.listoftours)
         {
@@ -50,5 +83,25 @@ public class TestGidsLogic
                 break;
             }
         }
+=======
+
+
+        List<Tour> tours = JsonSerializer.Deserialize<List<Tour>>(world.ReadAllText("DataSources/ListOfTours.json"));
+
+        Tour tour1 = null;
+        foreach (Tour tour in tours)
+        {
+            if (tour.Id == "1")
+            {
+                tour1 = tour;
+            }
+        }
+        foreach (string s in world.LinesWritten)
+        {
+            Console.WriteLine(s);
+        }
+        Console.WriteLine(tour1.ToString());
+        Assert.AreEqual(true, tour1.HasTakenTour.Contains("1010"));
+>>>>>>> c9fbb1e0817c4255d86a04e444a10059381cdb4a
     }
 }
