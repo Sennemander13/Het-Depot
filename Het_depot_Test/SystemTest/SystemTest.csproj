@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Het-Depot\Het-Depot.csproj" />
+    <ProjectReference Include="..\..\Het-Depot\Het-Depot.csproj" />
   </ItemGroup>
 
 </Project>
