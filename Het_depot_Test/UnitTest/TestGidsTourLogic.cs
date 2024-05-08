@@ -50,40 +50,6 @@ public class TestGidsTourLogic
         Program.world = world;
 
         Program.Main();
-<<<<<<< HEAD
-
-        Assert.AreEqual(true, world.LinesWritten.Contains("Kies een taak om uit te voeren:"));
-        Assert.AreEqual("1", GidsTour.tour.Id);
-    }
-
-    [TestMethod]
-    public void TestEmptyingTours()
-    {
-        FakeWorld world = new()
-        {
-            Now = new DateTime(2004, 08, 25),
-            LinesToRead = new List<string>() { "2", "B", "B", "C", "quit" },
-            Files = new()
-            {
-                { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [\"a\",\"b\",\"c\",\"d\",\"e\"], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": [\"a\",\"b\",\"c\",\"d\",\"e\"]}]"},
-                { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
-            }
-        };
-        Program.world = world;
-
-        Program.Main();
-
-        bool t = true;
-        foreach (Tour tour in DataModel.listoftours)
-        {
-            if (tour.Spots.Count != 0 || tour.HasTakenTour.Count != 0)
-            {
-                t = false;
-                break;
-            }
-        }
-=======
 
 
         List<Tour> tours = JsonSerializer.Deserialize<List<Tour>>(world.ReadAllText("DataSources/ListOfTours.json"));
@@ -102,6 +68,5 @@ public class TestGidsTourLogic
         }
         Console.WriteLine(tour1.ToString());
         Assert.AreEqual(true, tour1.HasTakenTour.Contains("1010"));
->>>>>>> c9fbb1e0817c4255d86a04e444a10059381cdb4a
     }
 }
