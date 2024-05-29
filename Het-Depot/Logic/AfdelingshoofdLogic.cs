@@ -111,7 +111,7 @@ public static class AfdelingshoofdLogic
                 enddate = startdate;
                 startdate = s;
             }
-            Program.world.WriteLine($"Nieuw schema wordt gemaakt van {startdate.ToString("yyyy-MM-dd")}-{enddate.ToString("yyyy-MM-dd")}");
+            Program.world.WriteLine($"Nieuw schema wordt gemaakt van {startdate.ToString("yyyy-MM-dd")} tot {enddate.ToString("yyyy-MM-dd")}");
             List<Tour> tours = new();
             int Id = 0;
             DateTime steptime = startdate;
