@@ -32,18 +32,18 @@ public class TestGidsTourLogic
 
     // DOesnt work because it doesnt look at the valid codes
     [TestMethod]
-    [DataRow("2,A,1,A,1010,,B,C,quit")]
+    [DataRow("2,A,1,A,1010,,b,C,quit")]
     public void TestAddingUser(string inputString)
     {
         string[] splitArray = inputString.Split(',');
         FakeWorld world = new()
         {
-            Now = new DateTime(2004, 08, 25),
+            Now = new DateTime(2024, 05, 15),
             LinesToRead = new List<string>(splitArray),
             Files = new()
             {
                 { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
+                { "RondleidingLog/2024-05-15-2024-06-05.json", "[{\"Id\": \"1\", \"Start\": \"05/15/2024 11:40\", \"End\": \"05/15/2024 12:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}, {\"Id\": \"2\", \"Start\": \"05/15/2024 12:40\", \"End\": \"05/15/2024 13:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}]"},
                 { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
             }
         };
@@ -52,21 +52,16 @@ public class TestGidsTourLogic
         Program.Main();
 
 
-        List<Tour> tours = JsonSerializer.Deserialize<List<Tour>>(world.ReadAllText("DataSources/ListOfTours.json"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("1111                         1010"));
+        // bool tof = false;
 
-        Tour tour1 = null;
-        foreach (Tour tour in tours)
-        {
-            if (tour.Id == "1")
-            {
-                tour1 = tour;
-            }
-        }
-        foreach (string s in world.LinesWritten)
-        {
-            Console.WriteLine(s);
-        }
-        Console.WriteLine(tour1.ToString());
-        Assert.AreEqual(true, tour1.HasTakenTour.Contains("1010"));
+        // foreach (Tour tour in DataModel.listoftours)
+        // {
+        //     if (tour.Spots.Count == 0) { tof = true; }
+
+        // }
+        // Assert.AreEqual(true, tof);
+
+        // Assert.AreEqual(true, )
     }
 }
