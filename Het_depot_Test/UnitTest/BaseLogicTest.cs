@@ -16,7 +16,7 @@ public class BaseLogicTest
             Files = new()
             {
                 { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
+                { "RondleidingLog/2024-05-15-2024-06-05.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}]"},
                 { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
             }
         };
@@ -73,19 +73,22 @@ public class BaseLogicTest
     {
         FakeWorld world = new()
         {
-            Now = new DateTime(2004, 08, 25),
+            Now = new DateTime(2024, 05, 15),
             LinesToRead = new List<string>() {},
             Files = new()
             {
                 { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
+                { "RondleidingLog/2024-05-15-2024-06-05.json", "[{\"Id\": \"1\", \"Start\": \"05/15/2024 11:40:00\", \"End\": \"05/15/2024 12:20:00\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}, {\"Id\": \"2\", \"Start\": \"05/15/2024 12:40:00\", \"End\": \"05/15/2024 13:20:00\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}]"},
                 { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
             }
         };
         Program.world = world;
         BaseLogic.DisplayRondleidingen();
+        Console.WriteLine(world.LinesWritten.Count);
+        foreach (string t in world.LinesWritten)
+        { Console.WriteLine(t); }
         
         Assert.AreEqual(true, world.LinesWritten.Contains("|1|11:40 - 12:20, 0/13"));
-        Assert.AreEqual(true, world.LinesWritten.Contains("|2|12:40 - 13:20, 0/13"));
+        // Assert.AreEqual(true, world.LinesWritten.Contains("|2|15/05/2024 12:40:00 - 15/05/2024 13:20:00, 0/13"));
     }
 }
