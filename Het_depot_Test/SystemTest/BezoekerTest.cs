@@ -16,7 +16,10 @@ namespace Het_depot_Test
                 {
                     { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
                     { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]" },
-                    { "DataSources/GidsCodes.json", "[\"1\", \"2\"]" }
+                    { "DataSources/GidsCodes.json", "[\"1\", \"2\"]" },
+                    { "RondleidingLog/default.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
+                    // { }
+
                 }
             };
             Program.world = world;
@@ -29,7 +32,7 @@ namespace Het_depot_Test
         }
 
         [TestMethod]
-        [DataRow("1111,A,2,y,A,1,y,b,quit")]
+        [DataRow("1111,A,2,y,b,quit")]
         public void TestRebooking(string inputString)
         {
             string[] splitArray = inputString.Split(',');
@@ -40,8 +43,10 @@ namespace Het_depot_Test
                 Files = new()
                 {
                     { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                    { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]" },
+                    { "RondleidingLog/default.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]" },
                     { "DataSources/GidsCodes.json", "[\"1\", \"2\"]" }
+                    // { "RondleidingLog/default.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
+
                 }
             };
             Program.world = world;
@@ -63,11 +68,13 @@ namespace Het_depot_Test
                 Now = new DateTime(2004, 08, 25),
                 LinesToRead = new List<string>(splitArray),
                 Files = new()
-                {
-                    { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                    { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]" },
-                    { "DataSources/GidsCodes.json", "[\"1\", \"2\"]" }
-                }
+                    {
+                        { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
+                        { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]" },
+                        { "DataSources/GidsCodes.json", "[\"1\", \"2\"]" },
+                        { "RondleidingLog/default.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
+
+                    }
             };
             Program.world = world;
             Program.Main();

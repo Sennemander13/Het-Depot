@@ -9,25 +9,27 @@ public static class AfdelingshoofdLogic
         if (userInput == "A")
         {
             string keuze;
-            do{
-            // BaseLogic.DisplayRondleidingen();
-            // Program.world.WriteLine("Wilt u een rondleiding:\n[A] Toevoegen\n[B] Verwijderen\n[C] Aanpassen\n[D] Terug");
-            Program.world.WriteLine("[A] Nieuw schema maken\n[B] Gidsen Toevoegen aan rondleidingen\n[C] Selecteer schema voor gebruik\n[D] Terug");
+            do
+            {
+                // BaseLogic.DisplayRondleidingen();
+                // Program.world.WriteLine("Wilt u een rondleiding:\n[A] Toevoegen\n[B] Verwijderen\n[C] Aanpassen\n[D] Terug");
+                Program.world.WriteLine("[A] Nieuw schema maken\n[B] Gidsen Toevoegen aan rondleidingen\n[C] Selecteer schema voor gebruik\n[D] Terug");
 
-            keuze = Program.world.ReadLine()!.ToLower();
-            ChangeATour(keuze);
+                keuze = Program.world.ReadLine()!.ToLower();
+                ChangeATour(keuze);
             } while (keuze != "d");
         }
         else if (userInput == "B")
         {
             string keuze;
-            do {
+            do
+            {
                 DisplayCodes();
                 Program.world.WriteLine("[A] Leeghalen\n[B] Toevoegen\n[C] Terug");
                 keuze = Program.world.ReadLine()!.ToUpper();
                 if (keuze == "A")
                 {
-                    DataModel.visitorCodes = new List<string>();;
+                    DataModel.visitorCodes = new List<string>(); ;
                 }
                 else if (keuze == "B")
                 {
@@ -54,7 +56,7 @@ public static class AfdelingshoofdLogic
                             List<string> visitorCodes = codes.Split(",").ToList();
                             // DataModel.visitorCodes!.Add(code);
                             foreach (string code in visitorCodes)
-                            { DataModel.visitorCodes!.Add(code);}
+                            { DataModel.visitorCodes!.Add(code); }
 
                         } while (codes != "");
                     }
@@ -64,30 +66,32 @@ public static class AfdelingshoofdLogic
         else if (userInput == "C")
         {
             string keuze;
-            do{
-            Program.world.WriteLine("Lijst van gidsen nu:");
-            foreach (string gids in DataModel.guideCodes!)
+            do
             {
-                Program.world.WriteLine(gids);
-            }
-            Program.world.WriteLine("wat wilt u doen met deze lijst:\n[A] Gids toevoegen\n[B] Gids verwijderen\n[C] terug");
-            keuze = Program.world.ReadLine().ToUpper();
-            if (keuze == "A"){
-                Program.world.WriteLine("Welke code wilt u toevoegen:");
-                string code = Program.world.ReadLine()!;
-                DataModel.guideCodes.Add(code);
-                Console.WriteLine("Gids toegevoegd");
-            }
-            else if (keuze == "B")
-            {
-                Program.world.WriteLine("Welke gids wilt u verwijderen (gids code)");
-                string gidscode = Program.world.ReadLine();
-                if (DataModel.guideCodes.Contains(gidscode)) { DataModel.guideCodes.Remove(gidscode);}
-                else {Program.world.WriteLine("Ongeldige code");}
-            }
+                Program.world.WriteLine("Lijst van gidsen nu:");
+                foreach (string gids in DataModel.guideCodes!)
+                {
+                    Program.world.WriteLine(gids);
+                }
+                Program.world.WriteLine("wat wilt u doen met deze lijst:\n[A] Gids toevoegen\n[B] Gids verwijderen\n[C] terug");
+                keuze = Program.world.ReadLine().ToUpper();
+                if (keuze == "A")
+                {
+                    Program.world.WriteLine("Welke code wilt u toevoegen:");
+                    string code = Program.world.ReadLine()!;
+                    DataModel.guideCodes.Add(code);
+                    Console.WriteLine("Gids toegevoegd");
+                }
+                else if (keuze == "B")
+                {
+                    Program.world.WriteLine("Welke gids wilt u verwijderen (gids code)");
+                    string gidscode = Program.world.ReadLine();
+                    if (DataModel.guideCodes.Contains(gidscode)) { DataModel.guideCodes.Remove(gidscode); }
+                    else { Program.world.WriteLine("Ongeldige code"); }
+                }
             } while (keuze != "C");
         }
-        else if ( userInput == "D") {return;}
+        else if (userInput == "D") { return; }
     }
 
     public static void ChangeATour(string keuze)
@@ -98,7 +102,7 @@ public static class AfdelingshoofdLogic
             Program.world.WriteLine("Nieuw schema creeren van start datum tot einddatum");
             Program.world.Write("Welke start datum wilt u (yyyy-mm-dd): ");
             DateTime start = DateTime.Parse(Program.world.ReadLine());
-            DateTime startdate = new DateTime(start.Year,start.Month,start.Day,11,00,00);
+            DateTime startdate = new DateTime(start.Year, start.Month, start.Day, 11, 00, 00);
             Program.world.Write("Welke eind datum wilt u (yyyy-mm-dd): ");
             DateTime enddate = DateTime.Parse(Program.world.ReadLine());
             if (startdate > enddate)
@@ -111,21 +115,22 @@ public static class AfdelingshoofdLogic
             List<Tour> tours = new();
             int Id = 0;
             DateTime steptime = startdate;
-            
+
             while (steptime < enddate)
             {
-                Tour newT = new Tour(Id.ToString(), steptime.ToString(), steptime.AddMinutes(20).ToString(),  new List<string>(), new List<string>());
-                
+                Tour newT = new Tour(Id.ToString(), steptime.ToString(), steptime.AddMinutes(20).ToString(), new List<string>(), new List<string>());
+
 
                 tours.Add(newT);
-                Id+=1;
+                Id += 1;
                 // Console.WriteLine($"{steptime.Day}. { steptime.Month}");
                 if (steptime.Hour == 16 && steptime.Minute == 40)
                 {
                     steptime = steptime.AddDays(1);
-                    steptime = new DateTime(steptime.Year, steptime.Month, steptime.Day ,11, 40, 0);
+                    steptime = new DateTime(steptime.Year, steptime.Month, steptime.Day, 11, 40, 0);
                 }
-                else {
+                else
+                {
                     steptime = steptime.AddMinutes(20);
                 }
             }
@@ -149,10 +154,10 @@ public static class AfdelingshoofdLogic
             }
 
             logEntries.Add(filePath);
-            File.WriteAllText("DataSources/RondleidingLogNames.json", JsonSerializer.Serialize(logEntries, new JsonSerializerOptions {WriteIndented = true}));
+            File.WriteAllText("DataSources/RondleidingLogNames.json", JsonSerializer.Serialize(logEntries, new JsonSerializerOptions { WriteIndented = true }));
 
             Program.world.WriteLine("Schema Gemaakt");
-            }
+        }
         if (keuze == "b")
         {
             // Adding guides to their tour
@@ -161,7 +166,7 @@ public static class AfdelingshoofdLogic
             DateTime today = Program.world.Now;
             Program.world.Write("Welke start datum wilt u (yyyy-mm-dd): ");
             DateTime start = DateTime.Parse(Program.world.ReadLine());
-            DateTime searchfordate = new DateTime(start.Year,start.Month,start.Day);
+            DateTime searchfordate = new DateTime(start.Year, start.Month, start.Day);
             foreach (Tour tour in DataModel.listoftours)
             {
                 DateTime toursstart = DateTime.Parse(tour.Start);
@@ -181,7 +186,7 @@ public static class AfdelingshoofdLogic
             string existingJson = File.ReadAllText("DataSources/RondleidingLogNames.json");
             List<string> logEntries = JsonSerializer.Deserialize<List<string>>(existingJson);
             int id = 0;
-            foreach(string schema in logEntries)
+            foreach (string schema in logEntries)
             {
                 Console.WriteLine($"{id}| {schema}");
                 id++;
@@ -189,8 +194,8 @@ public static class AfdelingshoofdLogic
             Program.world.WriteLine("Welk schema wilt u gebruiken");
             string input = Console.ReadLine();
             DataModel.FilePathSchedule = logEntries[Convert.ToInt32(input)];
-            Console.WriteLine(DataModel.FilePathSchedule +" is geselecteerd");
-            DataModel.getListOfTours();            
+            Console.WriteLine(DataModel.FilePathSchedule + " is geselecteerd");
+            DataModel.getListOfTours();
         }
     }
 
