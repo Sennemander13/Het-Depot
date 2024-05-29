@@ -4,6 +4,8 @@ public static class DataModel
     public static List<Tour>? listoftours;
     public static List<string>? visitorCodes;
     public static List<string>? guideCodes;
+
+    public static string FilePathSchedule = "RondleidingLog/default.json";
     // public static SoundPlayer soundPlayer = new("DataSources/beep-07a.wav");
     static DataModel()
     {
@@ -12,11 +14,11 @@ public static class DataModel
         getListofGuideCodes();
     }
 
-    private static void getListOfTours()
+    public static void getListOfTours()
     {
         // Method logic here
         // Read the entire content of the file as a single string
-        string fileContents = Program.world.ReadAllText("DataSources/ListOfTours.json");
+        string fileContents = Program.world.ReadAllText(FilePathSchedule);
 
         // Deserialize the JSON content into a list of Tour objects
         List<Tour> listOfTours = JsonSerializer.Deserialize<List<Tour>>(fileContents)!;

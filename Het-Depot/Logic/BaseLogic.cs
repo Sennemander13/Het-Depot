@@ -39,9 +39,16 @@ public static class BaseLogic
 
     public static void DisplayRondleidingen()
     {
-        foreach (Tour tour in DataModel.listoftours!)
+        DateTime today = Program.world.Now;
+        DateTime searchfordate = new DateTime(today.Year,today.Month,today.Day);
+        foreach (Tour tour in DataModel.listoftours)
         {
-            Program.world.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+            DateTime toursstart = DateTime.Parse(tour.Start);
+            if (toursstart.Day == searchfordate.Day && toursstart.Month == searchfordate.Month && toursstart.Year == searchfordate.Year)
+            {
+            // Program.world.Now;
+                Program.world.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, {tour.Spots.Count}/13");
+            }
         }
     }
 

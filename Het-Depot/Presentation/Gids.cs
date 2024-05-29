@@ -8,6 +8,7 @@ public static class Gids
             Program.world.Clear();
             Program.world.WriteLine($"Welkom {GidsCode}");
             Program.world.WriteLine("--------------------");
+            // gids ernaast laten zien hier
             BaseLogic.DisplayRondleidingen();
             Program.world.WriteLine("[A] kies een rondleiding");
             Program.world.WriteLine("[B] Leeg de rondleidingen");
