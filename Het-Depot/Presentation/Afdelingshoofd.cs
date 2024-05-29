@@ -3,7 +3,8 @@ public static class Afdelingshoofd
     public static void Display()
     {
         string userInput;
-        do{
+        do
+        {
             Program.world.Clear();
             Program.world.WriteLine($"Welkom AfdelingsHoofd");
             Program.world.WriteLine("--------------------");
@@ -13,6 +14,6 @@ public static class Afdelingshoofd
             Program.world.WriteLine("[D] Log uit");
             userInput = Program.world.ReadLine().ToUpper();
             AfdelingshoofdLogic.MenuOptions(userInput);
-        }while (userInput != "D");
+        } while (userInput != "D");
     }
 }
