@@ -18,11 +18,11 @@ public static class DataModel
     {
         // Method logic here
         // Read the entire content of the file as a single string
-        string fileContents = Program.world.ReadAllText(FilePathSchedule);
+        string fileContents = Program.world.ReadAllText("" + FilePathSchedule);
 
         // Deserialize the JSON content into a list of Tour objects
         List<Tour> listOfTours = JsonSerializer.Deserialize<List<Tour>>(fileContents)!;
-        
+
         listoftours = listOfTours;
     }
 
@@ -45,5 +45,5 @@ public static class DataModel
 
         guideCodes = listOfObjects;
     }
-    
+
 }
