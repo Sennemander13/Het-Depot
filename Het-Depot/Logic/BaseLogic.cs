@@ -43,7 +43,7 @@ public static class BaseLogic
         {
 
             // Program.world.Now;
-            Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {tour.Spots.Count}/13");
+            Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
             
         }
     }
