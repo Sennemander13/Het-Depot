@@ -1,15 +1,15 @@
 public static class TourLogic
 {
-    public static bool CheckIfGereserveed(string bezoekerCode)
+    public static int CheckIfGereserveed(string bezoekerCode)
     {
         foreach (Tour tour in DataModel.listoftours!)
         {
             if (tour.Spots.Contains(bezoekerCode))
             {
-                return true;
+                return Convert.ToInt32(tour.Id);
             }
         }
-        return false;
+        return -1;
     }
 
     public static bool CheckIfRondleidingGedaan(string bezoekerCode)

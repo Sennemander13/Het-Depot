@@ -22,9 +22,9 @@ public static class BezoekerTourLogic
                 tour.Spots.Remove(code);
             }
         }
-        else if (TourLogic.CheckIfGereserveed(code))
+        else if (TourLogic.CheckIfGereserveed(code) != -1)
         {
-            Program.world.WriteLine("U heeft al ergens gereserveerd");
+            Program.world.WriteLine($"U heeft al gereserveerd op de tour van {DataModel.listoftours[TourLogic.CheckIfGereserveed(code)].Start}");
             Program.world.WriteLine("Wilt u herboeken naar deze rondleiding? (y/n)");
             string confirm;
             do

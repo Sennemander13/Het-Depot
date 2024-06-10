@@ -6,7 +6,7 @@ public static class Bezoeker
         string BezoekerKeuze;
         do{
             Program.world.Clear();
-            Program.world.WriteLine($"Welkom {BezoekerCode}");
+            Program.world.WriteLine($"Welkom, {BezoekerCode}");
             Program.world.WriteLine("--------------------");
             BaseLogic.DisplayRondleidingen();
             Program.world.WriteLine("--------------------");
