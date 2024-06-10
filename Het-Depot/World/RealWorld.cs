@@ -1,8 +1,14 @@
 public class RealWorld : IWorld
 {
+    public DateTime test = DateTime.Now;
     public DateTime Now
     {
-        get => DateTime.Now;
+        // get
+        // {
+        //     return new DateTime(test.Year, test.Month, 8, test.Hour, test.Minute, test.Second, test.Millisecond);
+        // }
+
+        get => test;
     }
 
     public void WriteLine(string line)

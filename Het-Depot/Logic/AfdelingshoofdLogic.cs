@@ -98,63 +98,63 @@ public static class AfdelingshoofdLogic
     {
         if (keuze == "a")
         {
-            // Schema inplementation
-            Program.world.WriteLine("Nieuw schema creeren van start datum tot einddatum");
-            Program.world.Write("Welke start datum wilt u (yyyy-mm-dd): ");
-            DateTime start = DateTime.Parse(Program.world.ReadLine());
-            DateTime startdate = new DateTime(start.Year, start.Month, start.Day, 11, 00, 00);
-            Program.world.Write("Welke eind datum wilt u (yyyy-mm-dd): ");
-            DateTime enddate = DateTime.Parse(Program.world.ReadLine());
-            if (startdate > enddate)
-            {
-                DateTime s = enddate;
-                enddate = startdate;
-                startdate = s;
-            }
-            Program.world.WriteLine($"Nieuw schema wordt gemaakt van {startdate.ToString("yyyy-MM-dd")} tot {enddate.ToString("yyyy-MM-dd")}");
-            List<Tour> tours = new();
-            int Id = 0;
-            DateTime steptime = startdate;
+            // // Schema inplementation
+            // Program.world.WriteLine("Nieuw schema creeren van start datum tot einddatum");
+            // Program.world.Write("Welke start datum wilt u (yyyy-mm-dd): ");
+            // DateTime start = DateTime.Parse(Program.world.ReadLine());
+            // DateTime startdate = new DateTime(start.Year, start.Month, start.Day, 11, 00, 00);
+            // Program.world.Write("Welke eind datum wilt u (yyyy-mm-dd): ");
+            // DateTime enddate = DateTime.Parse(Program.world.ReadLine());
+            // if (startdate > enddate)
+            // {
+            //     DateTime s = enddate;
+            //     enddate = startdate;
+            //     startdate = s;
+            // }
+            // Program.world.WriteLine($"Nieuw schema wordt gemaakt van {startdate.ToString("yyyy-MM-dd")} tot {enddate.ToString("yyyy-MM-dd")}");
+            // List<Tour> tours = new();
+            // int Id = 0;
+            // DateTime steptime = startdate;
 
-            while (steptime < enddate)
-            {
-                Tour newT = new Tour(Id.ToString(), steptime.ToString(), steptime.AddMinutes(20).ToString(), new List<string>(), new List<string>());
+            // while (steptime < enddate)
+            // {
+            //     Tour newT = new Tour(Id.ToString(), steptime.ToString(), steptime.AddMinutes(20).ToString(), new List<string>(), new List<string>());
 
 
-                tours.Add(newT);
-                Id += 1;
-                // Console.WriteLine($"{steptime.Day}. { steptime.Month}");
-                if (steptime.Hour == 16 && steptime.Minute == 40)
-                {
-                    steptime = steptime.AddDays(1);
-                    steptime = new DateTime(steptime.Year, steptime.Month, steptime.Day, 11, 40, 0);
-                }
-                else
-                {
-                    steptime = steptime.AddMinutes(20);
-                }
-            }
-            string jsonString = JsonSerializer.Serialize(tours, new JsonSerializerOptions { WriteIndented = true });
+            //     tours.Add(newT);
+            //     Id += 1;
+            //     // Console.WriteLine($"{steptime.Day}. { steptime.Month}");
+            //     if (steptime.Hour == 16 && steptime.Minute == 40)
+            //     {
+            //         steptime = steptime.AddDays(1);
+            //         steptime = new DateTime(steptime.Year, steptime.Month, steptime.Day, 11, 40, 0);
+            //     }
+            //     else
+            //     {
+            //         steptime = steptime.AddMinutes(20);
+            //     }
+            // }
+            // string jsonString = JsonSerializer.Serialize(tours, new JsonSerializerOptions { WriteIndented = true });
 
-            // Specify the file path
-            string filePath = $"RondleidingLog/{startdate.ToString("yyyy-MM-dd")}-{enddate.ToString("yyyy-MM-dd")}.json";
+            // // Specify the file path
+            // string filePath = $"{startdate.ToString("yyyy-MM-dd")}-{enddate.ToString("yyyy-MM-dd")}.json";
 
-            List<string> logEntries;
+            // List<string> logEntries;
 
-            // Write the JSON string to a file
-            File.WriteAllText(filePath, jsonString);
-            if (File.Exists("DataSources/RondleidingLogNames.json"))
-            {
-                string existingJson = File.ReadAllText("DataSources/RondleidingLogNames.json");
-                logEntries = JsonSerializer.Deserialize<List<string>>(existingJson) ?? new List<string>();
-            }
-            else
-            {
-                logEntries = new List<string>();
-            }
+            // // Write the JSON string to a file
+            // File.WriteAllText(filePath, jsonString);
+            // if (File.Exists("DataSources/RondleidingLogNames.json"))
+            // {
+            //     string existingJson = File.ReadAllText("DataSources/RondleidingLogNames.json");
+            //     logEntries = JsonSerializer.Deserialize<List<string>>(existingJson) ?? new List<string>();
+            // }
+            // else
+            // {
+            //     logEntries = new List<string>();
+            // }
 
-            logEntries.Add(filePath);
-            File.WriteAllText("DataSources/RondleidingLogNames.json", JsonSerializer.Serialize(logEntries, new JsonSerializerOptions { WriteIndented = true }));
+            // logEntries.Add(filePath);
+            // File.WriteAllText("DataSources/RondleidingLogNames.json", JsonSerializer.Serialize(logEntries, new JsonSerializerOptions { WriteIndented = true }));
 
             Program.world.WriteLine("Schema Gemaakt");
         }
@@ -173,7 +173,7 @@ public static class AfdelingshoofdLogic
                 if (toursstart.Day == searchfordate.Day && toursstart.Month == searchfordate.Month && toursstart.Year == searchfordate.Year)
                 {
                     Console.WriteLine();
-                    Program.world.WriteLine($"|{tour.Id}|{tour.Start} - {tour.End}, Gids: {tour.GuideCode}");
+                    Program.world.WriteLine($"|{tour.Id}|{tour.Start}, Gids: {tour.GuideCode}");
                     Program.world.WriteLine("Wilt u op deze rondleidng een gids toevoegen\nVoer dan nu de code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
                     string gidscode = Program.world.ReadLine();
                     if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; }

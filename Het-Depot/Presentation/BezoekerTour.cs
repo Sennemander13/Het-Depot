@@ -6,7 +6,7 @@ public static class BezoekerTour
     {
         Program.world.Clear();
         Program.world.WriteLine("--------------------");
-        Program.world.WriteLine($"{tour!.Start} - {tour.End} is geselecteerd");
+        Program.world.WriteLine($"{tour!.Start} is geselecteerd");
         BezoekerTourLogic.TourMenuOptions(BezoekerCode!, tour);
     }
 }
