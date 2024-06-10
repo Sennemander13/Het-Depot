@@ -4,17 +4,18 @@ public static class Gids
     public static void Display()
     {
         string userInput;
-        do{
+        do
+        {
             Program.world.Clear();
-            Program.world.WriteLine($"Welkom {GidsCode}");
+            Program.world.WriteLine($"Welkom, {GidsCode}");
             Program.world.WriteLine("--------------------");
             // gids ernaast laten zien hier
             BaseLogic.DisplayRondleidingen();
-            Program.world.WriteLine("[A] kies een rondleiding");
-            Program.world.WriteLine("[C] Log uit");
+            Program.world.WriteLine("[A]: Kies een rondleiding");
+            Program.world.WriteLine("[C]: Log uit");
             Program.world.WriteLine("--------------------");
             userInput = Program.world.ReadLine()!.ToUpper();
             GidsLogic.GuideMenuOption(userInput);
-        }while (userInput != "C");
+        } while (userInput != "C");
     }
 }

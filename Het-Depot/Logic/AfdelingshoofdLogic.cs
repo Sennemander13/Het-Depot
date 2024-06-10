@@ -25,7 +25,9 @@ public static class AfdelingshoofdLogic
             do
             {
                 DisplayCodes();
-                Program.world.WriteLine("[A] Leeghalen\n[B] Toevoegen\n[C] Terug");
+                Program.world.WriteLine("[A]: Leeghalen");
+                Program.world.WriteLine("[B]: Toevoegen");
+                Program.world.WriteLine("[C]: Terug");
                 keuze = Program.world.ReadLine()!.ToUpper();
                 if (keuze == "A")
                 {
@@ -33,7 +35,9 @@ public static class AfdelingshoofdLogic
                 }
                 else if (keuze == "B")
                 {
-                    Program.world.WriteLine("[A] Een voor een [B] code,code,code [C] Terug");
+                    Program.world.WriteLine("[A]: Een voor een");
+                    Program.world.WriteLine("[B]: code,code,code");
+                    Program.world.WriteLine("[C]: Terug");
                     string keuze2 = Program.world.ReadLine()!.ToUpper();
                     if (keuze2 == "A")
                     {

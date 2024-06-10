@@ -6,12 +6,17 @@ public static class BezoekerTourLogic
         {
             Program.world.WriteLine("U heeft al een rondleiding gedaan");
             Program.world.WriteLine("Kom morgen terug");
+            Program.world.WriteLine("Druk Enter");
             Console.ReadLine();
         }
         else if (tour.Spots.Contains(code))
         {
+            // Program.world.WriteLine("U heeft al gereserveerd op deze rondleiding");
+            // Program.world.WriteLine("Wilt u uitschrijven? (y/n)");
             Program.world.WriteLine("U heeft al gereserveerd op deze rondleiding");
-            Program.world.WriteLine("Wilt u uitschrijven? (y/n)");
+            Program.world.WriteLine("Wilt u uitschrijven?");
+            Program.world.WriteLine("[Y]: Uitschrijven");
+            Program.world.WriteLine("[N]: Niet uitschrijven");
             string confirm;
             do
             {
@@ -20,12 +25,21 @@ public static class BezoekerTourLogic
             if (confirm == "y")
             {
                 tour.Spots.Remove(code);
+                Program.world.WriteLine("Uitschrijven voltooid!");
+                Program.world.WriteLine("Druk Enter");
+                Program.world.ReadLine();
+
             }
         }
         else if (TourLogic.CheckIfGereserveed(code) != -1)
         {
+            // Program.world.WriteLine("U heeft al ergens gereserveerd");
+            // Program.world.WriteLine("Wilt u herboeken naar deze rondleiding? (y/n)");
             Program.world.WriteLine($"U heeft al gereserveerd op de tour van {DataModel.listoftours[TourLogic.CheckIfGereserveed(code)].Start}");
-            Program.world.WriteLine("Wilt u herboeken naar deze rondleiding? (y/n)");
+            Program.world.WriteLine("Wilt u herboeken naar deze rondleiding?");
+            Program.world.WriteLine("[Y]: Herboeken");
+            Program.world.WriteLine("[N]: Niet herboeken");
+
             string confirm;
             do
             {
@@ -34,11 +48,17 @@ public static class BezoekerTourLogic
             if (confirm == "y")
             {
                 herboeken(code, tour);
+                Program.world.WriteLine("Herboeken voltooid!");
+                Program.world.WriteLine("Druk Enter");
+                Program.world.ReadLine();
             }
         }
         else
         {
-            Program.world.WriteLine("Wilt u op deze rondleiding een plaats reserveren? (y/n)");
+            // Program.world.WriteLine("Wilt u op deze rondleiding een plaats reserveren? (y/n)");
+            Program.world.WriteLine("Wilt u op deze rondleiding een plaats reserveren?");
+            Program.world.WriteLine("[Y]: Reserveren");
+            Program.world.WriteLine("[N]: Niet reserveren");
             string confirm;
             do
             {
@@ -47,10 +67,13 @@ public static class BezoekerTourLogic
             if (confirm == "y")
             {
                 tour.Spots.Add(code);
+                Program.world.WriteLine("Reserveren voltooid!");
+                Program.world.WriteLine("Druk Enter");
+                Program.world.ReadLine();
             }
         }
     }
-    
+
     public static void herboeken(string code, Tour tour)
     {
         foreach (Tour t in DataModel.listoftours!)
@@ -62,5 +85,4 @@ public static class BezoekerTourLogic
         }
         tour.Spots.Add(code);
     }
-
 }

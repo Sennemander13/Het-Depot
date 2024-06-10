@@ -4,14 +4,14 @@
     public static void Main()
     {
         string code;
-        do{
+        do
+        {
             world.Clear();
             world.WriteLine("--------------------");
-            world.WriteLine("Welkom scan uw code");
+            world.WriteLine("Welkom, scan uw code");
             world.Write("Code: ");
             code = world.ReadLine()!;
             BaseLogic.Login(code);
         } while (code != "quit");
     }
-
 }
