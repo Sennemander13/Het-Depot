@@ -12,7 +12,7 @@ public static class AfdelingshoofdLogic
             foreach (Tour tour in DataModel.listoftours)
             {
                 Program.world.WriteLine($"Rondleiding: {tour.Id} | start om: {tour.Start}, Gids: {tour.GuideCode}");
-                Program.world.WriteLine("Wilt u op deze rondleidng een gids toevoegen\nVoer dan nu de code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
+                Program.world.WriteLine("Wilt u op deze rondleidng een gids toevoegen\nVoer dan nu de gids code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
                 string gidscode = Program.world.ReadLine();
                 if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; }
             }
@@ -49,24 +49,30 @@ public static class AfdelingshoofdLogic
                         string code;
                         do
                         {
-                            Program.world.WriteLine("Welke code wilt u toevoegen:");
+                            Program.world.WriteLine("Welke bezoeker code wilt u toe voegen:");
                             code = Program.world.ReadLine()!.ToLower();
-                            DataModel.visitorCodes!.Add(code);
+                            if (!string.IsNullOrWhiteSpace(code))
+                            {
+                                DataModel.visitorCodes!.Add(code);
+                            }
                             Program.world.WriteLine("Druk enter zonder iets in te voeren om terug te gaan");
                         } while (code != "");
                         DataModel.WriteToCurrentDayJSON(DataModel.visitorCodes, "DataSources/UniqueCodesToday.json");
-                        Program.world.WriteLine("Bezoekers codes toegevoegd\nDruk enter");
+                        Program.world.WriteLine("Bezoekers codes toegevoegd");
+                        Program.world.WriteLine("Druk Enter");
                         Console.ReadLine();
                     }
                     else if (keuze2 == "B")
                     {
-                        Program.world.WriteLine("Welke codes wilt u toevoegen: (code,code,code,...)");
+                        Program.world.WriteLine("Format: code,code,code,...");
+                        Program.world.WriteLine("Voer codes in zoals gedaan in Format:");
                         string codes = Program.world.ReadLine()!.ToLower();
                         List<string> visitorCodes = codes.Replace(" ", "").Split(",").ToList();
                         foreach (string code in visitorCodes)
                         { DataModel.visitorCodes!.Add(code); }
                         DataModel.WriteToCurrentDayJSON(DataModel.visitorCodes, "DataSources/UniqueCodesToday.json");
-                        Program.world.WriteLine("Bezoekers codes toegevoegd\nDruk enter");
+                        Program.world.WriteLine("Bezoekers codes toegevoegd");
+                        Program.world.WriteLine("Druk Enter");
                         Console.ReadLine();
                     }
                 }
