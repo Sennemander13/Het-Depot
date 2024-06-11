@@ -11,9 +11,10 @@ public static class Afdelingshoofd
             Program.world.WriteLine("[A]: Gidsen aan schema koppelen");
             Program.world.WriteLine("[B]: Nieuwe codes invoeren");
             Program.world.WriteLine("[C]: gids lijst aanpassen");
-            Program.world.WriteLine("[D]: Log uit");
+            Program.world.WriteLine("[D]: Schema aanpassen");
+            Program.world.WriteLine("[E]: Log uit");
             userInput = Program.world.ReadLine().ToUpper();
             AfdelingshoofdLogic.MenuOptions(userInput);
-        } while (userInput != "D");
+        } while (userInput != "E");
     }
 }
