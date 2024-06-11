@@ -6,10 +6,6 @@ public static class GidsLogic
         {
             ChooseTour();
         }
-        else if (keuze == "B")
-        {
-            EmptyTours();
-        }
         else if (keuze == "C")
         {
             Gids.GidsCode = default;
@@ -32,15 +28,5 @@ public static class GidsLogic
                 GidsTour.Display();
             }
         }
-    }
-
-    public static void EmptyTours()
-    {
-        foreach (Tour tour in DataModel.listoftours!)
-        {
-            tour.Spots = [];
-            tour.HasTakenTour = [];
-        }
-
     }
 }

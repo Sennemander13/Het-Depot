@@ -25,11 +25,14 @@ public static class BezoekerTourLogic
             if (confirm == "y")
             {
                 tour.Spots.Remove(code);
+                DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
                 Program.world.WriteLine("Uitschrijven voltooid!");
                 Program.world.WriteLine("Druk Enter");
                 Program.world.ReadLine();
 
             }
+
+            
         }
         else if (TourLogic.CheckIfGereserveed(code) != -1)
         {
@@ -48,6 +51,7 @@ public static class BezoekerTourLogic
             if (confirm == "y")
             {
                 herboeken(code, tour);
+                DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
                 Program.world.WriteLine("Herboeken voltooid!");
                 Program.world.WriteLine("Druk Enter");
                 Program.world.ReadLine();
@@ -67,6 +71,7 @@ public static class BezoekerTourLogic
             if (confirm == "y")
             {
                 tour.Spots.Add(code);
+                DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
                 Program.world.WriteLine("Reserveren voltooid!");
                 Program.world.WriteLine("Druk Enter");
                 Program.world.ReadLine();

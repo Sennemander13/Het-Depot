@@ -49,6 +49,7 @@ public static class GidsTourLogic
                     }
                 }
                 tour!.HasTakenTour.Add(number);
+                DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
                 // SoundPlayer soundPlayer = new SoundPlayer("DataSources/beep-07a.wav");
                 // soundPlayer.Play();
                 // // zorgt dat de applicatie niet opeens afsluit tijdens afspelen

@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Threading.Tasks.Dataflow;
 public static class DataModel
 {
     public static List<Tour>? listoftours;
@@ -75,6 +76,27 @@ public static class DataModel
 
         listoftours = listOfTours;
     }
+
+
+    public static void WriteToCurrentDayJSON<T>(List<T> ListToJson, string FilePath)
+    {
+        try
+        {
+
+            // Serialize the list to JSON
+            string jsonString = JsonSerializer.Serialize(ListToJson);
+
+            // Write the JSON string to the file
+            File.WriteAllText(FilePath, jsonString);
+
+            // Console.WriteLine($"List has been written to {filePath}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+
 
     private static void getListOfVisitorCodes()
     {

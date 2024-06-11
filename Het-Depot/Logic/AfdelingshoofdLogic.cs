@@ -8,16 +8,38 @@ public static class AfdelingshoofdLogic
     {
         if (userInput == "A")
         {
-            string keuze;
-            do
-            {
-                // BaseLogic.DisplayRondleidingen();
-                // Program.world.WriteLine("Wilt u een rondleiding:\n[A] Toevoegen\n[B] Verwijderen\n[C] Aanpassen\n[D] Terug");
-                Program.world.WriteLine("[A] Nieuw schema maken\n[B] Gidsen Toevoegen aan rondleidingen\n[C] Selecteer schema voor gebruik\n[D] Terug");
+            // Adding guides to their tour
+            // Program.world.WriteLine("Gids koppelen aan een rondleiding");
+            // Program.world.WriteLine("Bij welke dag wilt u gidsen toevoegen op de rondleidingen: ");
+            // DateTime today = Program.world.Now;
+            // Program.world.Write("Welke start datum wilt u (yyyy-mm-dd): ");
+            // DateTime start = DateTime.Parse(Program.world.ReadLine());
+            // DateTime searchfordate = new DateTime(start.Year, start.Month, start.Day);
+            // foreach (Tour tour in DataModel.listoftours)
+            // {
+            //     DateTime toursstart = DateTime.Parse(tour.Start);
+            //     if (toursstart.Day == searchfordate.Day && toursstart.Month == searchfordate.Month && toursstart.Year == searchfordate.Year)
+            //     {
+            //         Console.WriteLine();
+            //         Program.world.WriteLine($"|{tour.Id}|{tour.Start}, Gids: {tour.GuideCode}");
+            //         Program.world.WriteLine("Wilt u op deze rondleidng een gids toevoegen\nVoer dan nu de code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
+            //         string gidscode = Program.world.ReadLine();
+            //         if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; }
+            //     }
+            // }
 
-                keuze = Program.world.ReadLine()!.ToLower();
-                ChangeATour(keuze);
-            } while (keuze != "d");
+            Program.world.WriteLine("Gidsen koppelen aan de rondleidingen van vandaag");
+            foreach (Tour tour in DataModel.listoftours)
+            {
+                Program.world.WriteLine($"Rondleiding: {tour.Id} | start om: {tour.Start}, Gids: {tour.GuideCode}");
+                Program.world.WriteLine("Wilt u op deze rondleidng een gids toevoegen\nVoer dan nu de code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
+                string gidscode = Program.world.ReadLine();
+                if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; }
+            }
+
+            DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
+            Program.world.Write("Gidsen gekoppeld aan de rondleidingen van vandaag\nDruk Enter");
+            Program.world.ReadLine();
         }
         else if (userInput == "B")
         {
@@ -31,7 +53,10 @@ public static class AfdelingshoofdLogic
                 keuze = Program.world.ReadLine()!.ToUpper();
                 if (keuze == "A")
                 {
-                    DataModel.visitorCodes = new List<string>(); ;
+                    DataModel.visitorCodes = new List<string>();
+                    DataModel.WriteToCurrentDayJSON(DataModel.visitorCodes, "DataSources/UniqueCodesToday.json");
+                    Program.world.WriteLine("Bezoekers codes geleegd\nDruk enter");
+                    Console.ReadLine();
                 }
                 else if (keuze == "B")
                 {
@@ -47,22 +72,22 @@ public static class AfdelingshoofdLogic
                             Program.world.WriteLine("Welke code wilt u toevoegen:");
                             code = Program.world.ReadLine()!.ToLower();
                             DataModel.visitorCodes!.Add(code);
-
-                        } while (code != "");
+                            Program.world.WriteLine("Druk enter zonder iets in te voeren om terug te gaan");
+                            } while (code != "");
+                        DataModel.WriteToCurrentDayJSON(DataModel.visitorCodes, "DataSources/UniqueCodesToday.json");
+                        Program.world.WriteLine("Bezoekers codes toegevoegd\nDruk enter");
+                        Console.ReadLine();
                     }
                     else if (keuze2 == "B")
                     {
-                        string codes;
-                        do
-                        {
-                            Program.world.WriteLine("Welke codes wilt u toevoegen: (code,code,code,...)");
-                            codes = Program.world.ReadLine()!.ToLower();
-                            List<string> visitorCodes = codes.Split(",").ToList();
-                            // DataModel.visitorCodes!.Add(code);
-                            foreach (string code in visitorCodes)
-                            { DataModel.visitorCodes!.Add(code); }
-
-                        } while (codes != "");
+                        Program.world.WriteLine("Welke codes wilt u toevoegen: (code,code,code,...)");
+                        string codes = Program.world.ReadLine()!.ToLower();
+                        List<string> visitorCodes = codes.Replace(" ", "").Split(",").ToList();
+                        foreach (string code in visitorCodes)
+                        { DataModel.visitorCodes!.Add(code); }
+                        DataModel.WriteToCurrentDayJSON(DataModel.visitorCodes, "DataSources/UniqueCodesToday.json");
+                        Program.world.WriteLine("Bezoekers codes toegevoegd\nDruk enter");
+                        Console.ReadLine();
                     }
                 }
             } while (keuze != "C");
@@ -84,123 +109,28 @@ public static class AfdelingshoofdLogic
                     Program.world.WriteLine("Welke code wilt u toevoegen:");
                     string code = Program.world.ReadLine()!;
                     DataModel.guideCodes.Add(code);
+                    DataModel.WriteToCurrentDayJSON(DataModel.guideCodes, "DataSources/GidsCodes.json");
                     Console.WriteLine("Gids toegevoegd");
+                    
+                    Program.world.WriteLine("Druk enter");
+                    Program.world.ReadLine();
                 }
                 else if (keuze == "B")
                 {
                     Program.world.WriteLine("Welke gids wilt u verwijderen (gids code)");
                     string gidscode = Program.world.ReadLine();
-                    if (DataModel.guideCodes.Contains(gidscode)) { DataModel.guideCodes.Remove(gidscode); }
+                    if (DataModel.guideCodes.Contains(gidscode)) 
+                    {
+                        DataModel.guideCodes.Remove(gidscode);
+                        DataModel.WriteToCurrentDayJSON(DataModel.guideCodes, "DataSources/GidsCodes.json");
+                        Program.world.WriteLine("Gids Verwijderd\nDruk enter");
+                        Console.ReadLine();
+                    }
                     else { Program.world.WriteLine("Ongeldige code"); }
                 }
             } while (keuze != "C");
         }
         else if (userInput == "D") { return; }
-    }
-
-    public static void ChangeATour(string keuze)
-    {
-        if (keuze == "a")
-        {
-            // // Schema inplementation
-            // Program.world.WriteLine("Nieuw schema creeren van start datum tot einddatum");
-            // Program.world.Write("Welke start datum wilt u (yyyy-mm-dd): ");
-            // DateTime start = DateTime.Parse(Program.world.ReadLine());
-            // DateTime startdate = new DateTime(start.Year, start.Month, start.Day, 11, 00, 00);
-            // Program.world.Write("Welke eind datum wilt u (yyyy-mm-dd): ");
-            // DateTime enddate = DateTime.Parse(Program.world.ReadLine());
-            // if (startdate > enddate)
-            // {
-            //     DateTime s = enddate;
-            //     enddate = startdate;
-            //     startdate = s;
-            // }
-            // Program.world.WriteLine($"Nieuw schema wordt gemaakt van {startdate.ToString("yyyy-MM-dd")} tot {enddate.ToString("yyyy-MM-dd")}");
-            // List<Tour> tours = new();
-            // int Id = 0;
-            // DateTime steptime = startdate;
-
-            // while (steptime < enddate)
-            // {
-            //     Tour newT = new Tour(Id.ToString(), steptime.ToString(), steptime.AddMinutes(20).ToString(), new List<string>(), new List<string>());
-
-
-            //     tours.Add(newT);
-            //     Id += 1;
-            //     // Console.WriteLine($"{steptime.Day}. { steptime.Month}");
-            //     if (steptime.Hour == 16 && steptime.Minute == 40)
-            //     {
-            //         steptime = steptime.AddDays(1);
-            //         steptime = new DateTime(steptime.Year, steptime.Month, steptime.Day, 11, 40, 0);
-            //     }
-            //     else
-            //     {
-            //         steptime = steptime.AddMinutes(20);
-            //     }
-            // }
-            // string jsonString = JsonSerializer.Serialize(tours, new JsonSerializerOptions { WriteIndented = true });
-
-            // // Specify the file path
-            // string filePath = $"{startdate.ToString("yyyy-MM-dd")}-{enddate.ToString("yyyy-MM-dd")}.json";
-
-            // List<string> logEntries;
-
-            // // Write the JSON string to a file
-            // File.WriteAllText(filePath, jsonString);
-            // if (File.Exists("DataSources/RondleidingLogNames.json"))
-            // {
-            //     string existingJson = File.ReadAllText("DataSources/RondleidingLogNames.json");
-            //     logEntries = JsonSerializer.Deserialize<List<string>>(existingJson) ?? new List<string>();
-            // }
-            // else
-            // {
-            //     logEntries = new List<string>();
-            // }
-
-            // logEntries.Add(filePath);
-            // File.WriteAllText("DataSources/RondleidingLogNames.json", JsonSerializer.Serialize(logEntries, new JsonSerializerOptions { WriteIndented = true }));
-
-            Program.world.WriteLine("Schema Gemaakt");
-        }
-        if (keuze == "b")
-        {
-            // Adding guides to their tour
-            Program.world.WriteLine("Gids toevoegen aan een rondleiding");
-            Program.world.WriteLine("Bij welke dag wilt u gidsen toevoegen op de rondleidingen: ");
-            DateTime today = Program.world.Now;
-            Program.world.Write("Welke start datum wilt u (yyyy-mm-dd): ");
-            DateTime start = DateTime.Parse(Program.world.ReadLine());
-            DateTime searchfordate = new DateTime(start.Year, start.Month, start.Day);
-            foreach (Tour tour in DataModel.listoftours)
-            {
-                DateTime toursstart = DateTime.Parse(tour.Start);
-                if (toursstart.Day == searchfordate.Day && toursstart.Month == searchfordate.Month && toursstart.Year == searchfordate.Year)
-                {
-                    Console.WriteLine();
-                    Program.world.WriteLine($"|{tour.Id}|{tour.Start}, Gids: {tour.GuideCode}");
-                    Program.world.WriteLine("Wilt u op deze rondleidng een gids toevoegen\nVoer dan nu de code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
-                    string gidscode = Program.world.ReadLine();
-                    if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; }
-                }
-            }
-        }
-        if (keuze == "c")
-        {
-            Program.world.WriteLine("Rondleiding schema kiezen");
-            string existingJson = File.ReadAllText("DataSources/RondleidingLogNames.json");
-            List<string> logEntries = JsonSerializer.Deserialize<List<string>>(existingJson);
-            int id = 0;
-            foreach (string schema in logEntries)
-            {
-                Console.WriteLine($"{id}| {schema}");
-                id++;
-            }
-            Program.world.WriteLine("Welk schema wilt u gebruiken");
-            string input = Console.ReadLine();
-            DataModel.FilePathSchedule = logEntries[Convert.ToInt32(input)];
-            Console.WriteLine(DataModel.FilePathSchedule + " is geselecteerd");
-            DataModel.getListOfTours();
-        }
     }
 
     public static void DisplayCodes()
