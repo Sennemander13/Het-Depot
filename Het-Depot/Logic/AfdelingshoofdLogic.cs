@@ -40,8 +40,8 @@ public static class AfdelingshoofdLogic
                 }
                 else if (keuze == "B")
                 {
-                    Program.world.WriteLine("[A]: Een voor een");
-                    Program.world.WriteLine("[B]: code,code,code");
+                    Program.world.WriteLine("[A]: Één code toevoegen");
+                    Program.world.WriteLine("[B]: Meerdere codes toevoegen");
                     Program.world.WriteLine("[C]: Terug");
                     string keuze2 = Program.world.ReadLine()!.ToUpper();
                     if (keuze2 == "A")
