@@ -11,7 +11,7 @@ public static class GidsTour
             GidsTourLogic.show2lists(tour);
             Program.world.WriteLine("Kies een taak om uit te voeren:");
             Program.world.WriteLine("[A]: Bezoeker inchecken");
-            Program.world.WriteLine("[B]: terug");
+            Program.world.WriteLine("[B]: Terug");
             Program.world.Write("Taak: ");
             GidsInput = Program.world.ReadLine()!.ToUpper();
             GidsTourLogic.Menu(GidsInput, tour);
