@@ -41,9 +41,23 @@ public static class BaseLogic
     {
         foreach (Tour tour in DataModel.listoftours)
         {
+            string[] timeparts = tour.Start.Split(":");
+            int newHour = int.Parse(timeparts[0]);
+            int newMinute = int.Parse(timeparts[1]);
 
-            // Program.world.Now;
-            Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
+            DateTime updatedTime = new DateTime(
+                Program.world.Now.Year,
+                Program.world.Now.Month,
+                Program.world.Now.Day,
+                newHour,
+                newMinute,
+                Program.world.Now.Second,
+                Program.world.Now.Millisecond
+            );
+            if (updatedTime > Program.world.Now)
+            {
+                Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
+            }
             
         }
     }
