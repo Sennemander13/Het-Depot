@@ -7,7 +7,7 @@ public static class GidsTour
         do
         {
             Program.world.Clear();
-            Program.world.WriteLine($"Tour ID: {tour!.Id} | Tijdsinterval: {tour.Start} | Bezoekers: {tour.Spots.Count}   ");
+            Program.world.WriteLine($"Tour ID: {tour!.Id} | Tijdsinterval: {tour.Start} | Bezoekers: {tour.HasTakenTour.Count}   ");
             GidsTourLogic.show2lists(tour);
             Program.world.WriteLine("Kies een taak om uit te voeren:");
             Program.world.WriteLine("[A]: Bezoeker inchecken");

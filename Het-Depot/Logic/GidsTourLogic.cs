@@ -37,7 +37,7 @@ public static class GidsTourLogic
 
     public static void AddID(string number, Tour tour)
     {
-        if (BaseLogic.IsValidCode(number, DataModel.visitorCodes!))
+        if (BaseLogic.IsValidCode(number, DataModel.visitorCodes!) || number != "")
         {
             if (!TourLogic.CheckIfRondleidingGedaan(number))
             {

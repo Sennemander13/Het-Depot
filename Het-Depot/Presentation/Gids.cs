@@ -11,11 +11,13 @@ public static class Gids
             Program.world.WriteLine("--------------------");
             // gids ernaast laten zien hier
             BaseLogic.DisplayRondleidingen();
+            Program.world.WriteLine("--------------------");
+            Program.world.WriteLine("-Kies tussen opties A of B-");
             Program.world.WriteLine("[A]: Kies een rondleiding");
-            Program.world.WriteLine("[C]: Log uit");
+            Program.world.WriteLine("[B]: Log uit");
             Program.world.WriteLine("--------------------");
             userInput = Program.world.ReadLine()!.ToUpper();
             GidsLogic.GuideMenuOption(userInput);
-        } while (userInput != "C");
+        } while (userInput != "B");
     }
 }
