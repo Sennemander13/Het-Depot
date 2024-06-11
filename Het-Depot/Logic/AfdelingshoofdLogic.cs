@@ -53,7 +53,7 @@ public static class AfdelingshoofdLogic
                             code = Program.world.ReadLine()!.ToLower();
                             DataModel.visitorCodes!.Add(code);
                             Program.world.WriteLine("Druk enter zonder iets in te voeren om terug te gaan");
-                            } while (code != "");
+                        } while (code != "");
                         DataModel.WriteToCurrentDayJSON(DataModel.visitorCodes, "DataSources/UniqueCodesToday.json");
                         Program.world.WriteLine("Bezoekers codes toegevoegd\nDruk enter");
                         Console.ReadLine();
@@ -77,33 +77,36 @@ public static class AfdelingshoofdLogic
             string keuze;
             do
             {
-                Program.world.WriteLine("Lijst van gidsen nu:");
+                Program.world.WriteLine("Lijst van huidige gidsen:");
                 foreach (string gids in DataModel.guideCodes!)
                 {
                     Program.world.WriteLine(gids);
                 }
-                Program.world.WriteLine("wat wilt u doen met deze lijst:\n[A] Gids toevoegen\n[B] Gids verwijderen\n[C] terug");
+                Program.world.WriteLine("Wat wilt u doen met deze lijst:");
+                Program.world.WriteLine("[A]: Gids toevoegen");
+                Program.world.WriteLine("[B]: Gids verwijderen");
+                Program.world.WriteLine("[C]: terug");
                 keuze = Program.world.ReadLine().ToUpper();
                 if (keuze == "A")
                 {
-                    Program.world.WriteLine("Welke code wilt u toevoegen:");
+                    Program.world.Write("Welke code wilt u toevoegen: ");
                     string code = Program.world.ReadLine()!;
                     DataModel.guideCodes.Add(code);
                     DataModel.WriteToCurrentDayJSON(DataModel.guideCodes, "DataSources/GidsCodes.json");
-                    Console.WriteLine("Gids toegevoegd");
-                    
+                    Program.world.WriteLine("Gids toegevoegd");
                     Program.world.WriteLine("Druk enter");
                     Program.world.ReadLine();
                 }
                 else if (keuze == "B")
                 {
-                    Program.world.WriteLine("Welke gids wilt u verwijderen (gids code)");
+                    Program.world.Write("Welke gids wilt u verwijderen (gids code): ");
                     string gidscode = Program.world.ReadLine();
-                    if (DataModel.guideCodes.Contains(gidscode)) 
+                    if (DataModel.guideCodes.Contains(gidscode))
                     {
                         DataModel.guideCodes.Remove(gidscode);
                         DataModel.WriteToCurrentDayJSON(DataModel.guideCodes, "DataSources/GidsCodes.json");
-                        Program.world.WriteLine("Gids Verwijderd\nDruk enter");
+                        Program.world.WriteLine("Gids Verwijderd");
+                        Program.world.WriteLine("Druk enter");
                         Console.ReadLine();
                     }
                     else { Program.world.WriteLine("Ongeldige code"); }
@@ -116,32 +119,35 @@ public static class AfdelingshoofdLogic
             {
                 Program.world.WriteLine($"Rondleiding: {t.Id} | Start om: {t.Start}");
             }
-            Program.world.WriteLine("[A] Rondleiding toevoegen\n[B] Aanpassen/Verwijderen");
+            Program.world.WriteLine("[A]: Rondleiding toevoegen");
+            Program.world.WriteLine("[B]: Aanpassen/Verwijderen");
             string choice = Program.world.ReadLine().ToUpper();
             if (choice == "B")
             {
-                Program.world.Write("Welke Rondleiding wilt u aanpassen (id): ");
+                Program.world.Write("Welke Rondleiding wilt u aanpassen (id):");
                 string id = Program.world.ReadLine();
                 foreach (Tour t in DataModel.listoftours)
                 {
                     if (t.Id == id)
                     {
                         Program.world.WriteLine("Wat wilt u doen met deze rondleiding");
-                        Program.world.WriteLine("[A] Tijd aanpassen");
-                        Program.world.WriteLine("[B] Verwijderen");
+                        Program.world.WriteLine("[A]: Tijd aanpassen");
+                        Program.world.WriteLine("[B]: Verwijderen");
                         string keuze = Program.world.ReadLine().ToUpper();
                         if (keuze == "A")
                         {
-                            Program.world.WriteLine("Naar welke tijd wilt u de rondleidng verplaatsen (Uur:Minuten)");
+                            Program.world.Write("Naar welke tijd wilt u de rondleidng verplaatsen (Uur:Minuten): ");
                             string time = Program.world.ReadLine();
                             t.Start = time;
-                            Program.world.WriteLine("Tijd veranderd\nDruk enter");
+                            Program.world.WriteLine("Tijd veranderd");
+                            Program.world.WriteLine("Druk Enter");
                             Program.world.ReadLine();
                         }
                         else if (keuze == "B")
                         {
                             DataModel.listoftours.Remove(t);
-                            Program.world.WriteLine("Rondleiding verwijderd\nDruk enter");
+                            Program.world.WriteLine("Rondleiding verwijderd");
+                            Program.world.WriteLine("Druk Enter");
                             Program.world.ReadLine();
                             return;
                         }
@@ -152,11 +158,12 @@ public static class AfdelingshoofdLogic
             {
                 Program.world.Write("Op welke tijd wilt u een rondleiding toevoegen (Uur:Minuten): ");
                 string start = Program.world.ReadLine();
-                DataModel.listoftours.Add(new Tour(Convert.ToString(Convert.ToInt32(DataModel.listoftours.Last().Id)+1), start, new List<string>() , new List<string>()));
-                Program.world.WriteLine("Rondleiding toegevoegd\nDruk enter");
+                DataModel.listoftours.Add(new Tour(Convert.ToString(Convert.ToInt32(DataModel.listoftours.Last().Id) + 1), start, new List<string>(), new List<string>()));
+                Program.world.WriteLine("Rondleiding toegevoegd");
+                Program.world.WriteLine("Druk Enter");
                 Program.world.ReadLine();
             }
-            
+
         }
         else if (userInput == "E") { return; }
     }
