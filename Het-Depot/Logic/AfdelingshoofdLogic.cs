@@ -8,26 +8,6 @@ public static class AfdelingshoofdLogic
     {
         if (userInput == "A")
         {
-            // Adding guides to their tour
-            // Program.world.WriteLine("Gids koppelen aan een rondleiding");
-            // Program.world.WriteLine("Bij welke dag wilt u gidsen toevoegen op de rondleidingen: ");
-            // DateTime today = Program.world.Now;
-            // Program.world.Write("Welke start datum wilt u (yyyy-mm-dd): ");
-            // DateTime start = DateTime.Parse(Program.world.ReadLine());
-            // DateTime searchfordate = new DateTime(start.Year, start.Month, start.Day);
-            // foreach (Tour tour in DataModel.listoftours)
-            // {
-            //     DateTime toursstart = DateTime.Parse(tour.Start);
-            //     if (toursstart.Day == searchfordate.Day && toursstart.Month == searchfordate.Month && toursstart.Year == searchfordate.Year)
-            //     {
-            //         Console.WriteLine();
-            //         Program.world.WriteLine($"|{tour.Id}|{tour.Start}, Gids: {tour.GuideCode}");
-            //         Program.world.WriteLine("Wilt u op deze rondleidng een gids toevoegen\nVoer dan nu de code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
-            //         string gidscode = Program.world.ReadLine();
-            //         if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; }
-            //     }
-            // }
-
             Program.world.WriteLine("Gidsen koppelen aan de rondleidingen van vandaag");
             foreach (Tour tour in DataModel.listoftours)
             {
@@ -130,7 +110,55 @@ public static class AfdelingshoofdLogic
                 }
             } while (keuze != "C");
         }
-        else if (userInput == "D") { return; }
+        else if (userInput == "D")
+        {
+            foreach (Tour t in DataModel.listoftours)
+            {
+                Program.world.WriteLine($"Rondleiding: {t.Id} | Start om: {t.Start}");
+            }
+            Program.world.WriteLine("[A] Rondleiding toevoegen\n[B] Aanpassen/Verwijderen");
+            string choice = Program.world.ReadLine().ToUpper();
+            if (choice == "B")
+            {
+                Program.world.Write("Welke Rondleiding wilt u aanpassen (id): ");
+                string id = Program.world.ReadLine();
+                foreach (Tour t in DataModel.listoftours)
+                {
+                    if (t.Id == id)
+                    {
+                        Program.world.WriteLine("Wat wilt u doen met deze rondleiding");
+                        Program.world.WriteLine("[A] Tijd aanpassen");
+                        Program.world.WriteLine("[B] Verwijderen");
+                        string keuze = Program.world.ReadLine().ToUpper();
+                        if (keuze == "A")
+                        {
+                            Program.world.WriteLine("Naar welke tijd wilt u de rondleidng verplaatsen (Uur:Minuten)");
+                            string time = Program.world.ReadLine();
+                            t.Start = time;
+                            Program.world.WriteLine("Tijd veranderd\nDruk enter");
+                            Program.world.ReadLine();
+                        }
+                        else if (keuze == "B")
+                        {
+                            DataModel.listoftours.Remove(t);
+                            Program.world.WriteLine("Rondleiding verwijderd\nDruk enter");
+                            Program.world.ReadLine();
+                            return;
+                        }
+                    }
+                }
+            }
+            else if (choice == "A")
+            {
+                Program.world.Write("Op welke tijd wilt u een rondleiding toevoegen (Uur:Minuten): ");
+                string start = Program.world.ReadLine();
+                DataModel.listoftours.Add(new Tour(Convert.ToString(Convert.ToInt32(DataModel.listoftours.Last().Id)+1), start, new List<string>() , new List<string>()));
+                Program.world.WriteLine("Rondleiding toegevoegd\nDruk enter");
+                Program.world.ReadLine();
+            }
+            
+        }
+        else if (userInput == "E") { return; }
     }
 
     public static void DisplayCodes()
