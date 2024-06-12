@@ -9,7 +9,6 @@ public static class GidsLogic
         else if (keuze == "C")
         {
             Gids.GidsCode = default;
-            // Program.Main();
         }
         else {
             Program.world.WriteLine("Ongeldige keuze");

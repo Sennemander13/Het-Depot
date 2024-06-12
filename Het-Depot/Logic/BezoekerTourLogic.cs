@@ -11,8 +11,6 @@ public static class BezoekerTourLogic
         }
         else if (tour.Spots.Contains(code))
         {
-            // Program.world.WriteLine("U heeft al gereserveerd op deze rondleiding");
-            // Program.world.WriteLine("Wilt u uitschrijven? (y/n)");
             Program.world.WriteLine("U heeft al gereserveerd op deze rondleiding");
             Program.world.WriteLine("Wilt u uitschrijven?");
             Program.world.WriteLine("[Y]: Uitschrijven");
@@ -36,8 +34,6 @@ public static class BezoekerTourLogic
         }
         else if (TourLogic.CheckIfGereserveed(code) != -1)
         {
-            // Program.world.WriteLine("U heeft al ergens gereserveerd");
-            // Program.world.WriteLine("Wilt u herboeken naar deze rondleiding? (y/n)");
             Program.world.WriteLine($"U heeft al gereserveerd op de tour van {DataModel.listoftours[TourLogic.CheckIfGereserveed(code)].Start}");
             Program.world.WriteLine("Wilt u herboeken naar deze rondleiding?");
             Program.world.WriteLine("[Y]: Herboeken");
@@ -59,7 +55,6 @@ public static class BezoekerTourLogic
         }
         else
         {
-            // Program.world.WriteLine("Wilt u op deze rondleiding een plaats reserveren? (y/n)");
             Program.world.WriteLine("Wilt u op deze rondleiding een plaats reserveren?");
             Program.world.WriteLine("[Y]: Reserveren");
             Program.world.WriteLine("[N]: Niet reserveren");

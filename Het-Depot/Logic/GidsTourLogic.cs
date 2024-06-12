@@ -26,7 +26,7 @@ public static class GidsTourLogic
             {
                 UniqueId = Program.world.ReadLine()!;
                 AddID(UniqueId, tour);
-                Program.world.Write("Press enter"); // toegevoegd na waarneming in gebruikerstest
+                Program.world.Write("Press enter");
             } while (UniqueId != "");
         }
         else
