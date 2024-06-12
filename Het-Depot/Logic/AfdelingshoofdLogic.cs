@@ -121,12 +121,10 @@ public static class AfdelingshoofdLogic
         }
         else if (userInput == "D")
         {
-            foreach (Tour t in DataModel.listoftours)
-            {
-                Program.world.WriteLine($"Rondleiding: {t.Id} | Start om: {t.Start}");
-            }
+            BaseLogic.DisplayRondleidingen("afdelingshoofd");
             Program.world.WriteLine("[A]: Rondleiding toevoegen");
             Program.world.WriteLine("[B]: Aanpassen/Verwijderen");
+            Program.world.WriteLine("Druk enter om terug te gaan");
             string choice = Program.world.ReadLine().ToUpper();
             if (choice == "B")
             {
