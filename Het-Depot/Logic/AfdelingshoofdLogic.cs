@@ -164,6 +164,7 @@ public static class AfdelingshoofdLogic
                 string start = Program.world.ReadLine();
                 DataModel.listoftours.Add(new Tour(Convert.ToString(Convert.ToInt32(DataModel.listoftours.Last().Id) + 1), start, new List<string>(), new List<string>()));
                 Program.world.WriteLine("Rondleiding toegevoegd");
+                DataModel.listoftours = DataModel.listoftours.OrderBy(x => x.Start).ToList();
                 Program.world.WriteLine("Druk Enter");
                 Program.world.ReadLine();
             }
