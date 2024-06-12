@@ -61,6 +61,10 @@ public static class BaseLogic
                     Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
                 }
             }
+            else if (UserType == "afdelingshoofd")
+            {
+                Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij | Gids: {tour.GuideCode}");
+            }
             else
             {
                 if (updatedTime > Program.world.Now)
