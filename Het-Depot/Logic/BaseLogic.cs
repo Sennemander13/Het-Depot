@@ -65,7 +65,7 @@ public static class BaseLogic
             {
                 if (updatedTime > Program.world.Now)
                 {
-                    Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
+                    Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij | Gids: {tour.GuideCode}");
                 }
             }
             
