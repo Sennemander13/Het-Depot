@@ -54,7 +54,7 @@ public static class BaseLogic
                 Program.world.Now.Second,
                 Program.world.Now.Millisecond
             );
-            if (updatedTime > Program.world.Now)
+            if (updatedTime > Program.world.Now && tour.Spots.Count != 13)
             {
                 Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
             }
