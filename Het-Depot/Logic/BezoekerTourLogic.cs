@@ -34,7 +34,7 @@ public static class BezoekerTourLogic
         }
         else if (TourLogic.CheckIfGereserveed(code) != -1)
         {
-            Program.world.WriteLine($"U heeft al gereserveerd op de tour van {DataModel.listoftours[TourLogic.CheckIfGereserveed(code)].Start}");
+            Program.world.WriteLine($"U heeft al gereserveerd op de rondleiding van {DataModel.listoftours[TourLogic.CheckIfGereserveed(code)].Start}");
             Program.world.WriteLine("Wilt u herboeken naar deze rondleiding?");
             Program.world.WriteLine("[Y]: Herboeken");
             Program.world.WriteLine("[N]: Niet herboeken");
