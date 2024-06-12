@@ -9,7 +9,7 @@ public static class Bezoeker
             Program.world.Clear();
             Program.world.WriteLine($"Welkom, {BezoekerCode}");
             Program.world.WriteLine("--------------------");
-            BaseLogic.DisplayRondleidingen();
+            BaseLogic.DisplayRondleidingen("bezoeker");
             Program.world.WriteLine("--------------------");
             Program.world.WriteLine("-Kies tussen opties A of B-");
             Program.world.WriteLine("[A]: Kies een rondleiding");

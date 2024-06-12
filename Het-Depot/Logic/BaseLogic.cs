@@ -37,7 +37,7 @@ public static class BaseLogic
         }
     }
 
-    public static void DisplayRondleidingen()
+    public static void DisplayRondleidingen(string UserType)
     {
         foreach (Tour tour in DataModel.listoftours)
         {
@@ -54,9 +54,19 @@ public static class BaseLogic
                 Program.world.Now.Second,
                 Program.world.Now.Millisecond
             );
-            if (updatedTime > Program.world.Now && tour.Spots.Count != 13)
+            if (UserType == "bezoeker")
             {
-                Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
+                if (updatedTime > Program.world.Now && tour.Spots.Count != 13)
+                {
+                    Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
+                }
+            }
+            else
+            {
+                if (updatedTime > Program.world.Now)
+                {
+                    Program.world.WriteLine($"|{tour.Id}|{tour.Start}, {13 - tour.Spots.Count} plekken vrij");
+                }
             }
             
         }

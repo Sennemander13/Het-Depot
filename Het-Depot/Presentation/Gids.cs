@@ -10,7 +10,7 @@ public static class Gids
             Program.world.WriteLine($"Welkom, {GidsCode}");
             Program.world.WriteLine("--------------------");
             // gids ernaast laten zien hier
-            BaseLogic.DisplayRondleidingen();
+            BaseLogic.DisplayRondleidingen("gids");
             Program.world.WriteLine("--------------------");
             Program.world.WriteLine("-Kies tussen opties A of B-");
             Program.world.WriteLine("[A]: Kies een rondleiding");
