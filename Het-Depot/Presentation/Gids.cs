@@ -1,6 +1,6 @@
 public static class Gids
 {
-    public static string? GidsCode;
+    public static string GidsCode;
     public static void Display()
     {
         string userInput;

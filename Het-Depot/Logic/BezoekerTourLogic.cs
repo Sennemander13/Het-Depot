@@ -4,7 +4,7 @@ public static class BezoekerTourLogic
     {
         if (TourLogic.CheckIfRondleidingGedaan(code))
         {
-            Program.world.WriteLine("U heeft al een rondleiding gedaan");
+            Program.world.WriteLine("U heeft al een rondleiding gevolgd");
             Program.world.WriteLine("Kom morgen terug");
             Program.world.WriteLine("Druk Enter");
             Console.ReadLine();
@@ -12,7 +12,7 @@ public static class BezoekerTourLogic
         else if (tour.Spots.Contains(code))
         {
             Program.world.WriteLine("U heeft al gereserveerd op deze rondleiding");
-            Program.world.WriteLine("Wilt u uitschrijven?");
+            Program.world.WriteLine("Wilt u zich uitschrijven?");
             Program.world.WriteLine("[Y]: Uitschrijven");
             Program.world.WriteLine("[N]: Niet uitschrijven");
             string confirm;
@@ -30,7 +30,7 @@ public static class BezoekerTourLogic
 
             }
 
-            
+
         }
         else if (TourLogic.CheckIfGereserveed(code) != -1)
         {

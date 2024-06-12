@@ -1,6 +1,6 @@
 public static class GidsTour
 {
-    public static Tour? tour;
+    public static Tour tour;
     public static void Display()
     {
         string GidsInput;

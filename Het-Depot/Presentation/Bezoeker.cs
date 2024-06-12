@@ -1,6 +1,6 @@
 public static class Bezoeker
 {
-    public static string? BezoekerCode;
+    public static string BezoekerCode;
     public static void Display()
     {
         string BezoekerKeuze;

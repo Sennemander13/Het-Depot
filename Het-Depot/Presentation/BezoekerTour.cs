@@ -1,7 +1,7 @@
 public static class BezoekerTour
 {
-    public static Tour? tour;
-    public static string? BezoekerCode;
+    public static Tour tour;
+    public static string BezoekerCode;
     public static void Display()
     {
         Program.world.Clear();

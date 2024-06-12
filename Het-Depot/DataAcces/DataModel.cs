@@ -2,9 +2,9 @@ using System.Text.Json;
 using System.Threading.Tasks.Dataflow;
 public static class DataModel
 {
-    public static List<Tour>? listoftours;
-    public static List<string>? visitorCodes;
-    public static List<string>? guideCodes;
+    public static List<Tour> listoftours;
+    public static List<string> visitorCodes;
+    public static List<string> guideCodes;
 
     public static string FilePathSchedule = "RondleidingLog/default.json";
     static DataModel()
@@ -44,10 +44,10 @@ public static class DataModel
             {
                 Tour newT = new Tour(id.ToString(), starTime.ToString("HH:mm"), new List<string>(), new List<string>());
                 tours.Add(newT);
-                id+=1;
+                id += 1;
                 starTime = starTime.AddMinutes(20);
 
-            } 
+            }
             string jsonString = JsonSerializer.Serialize(tours, new JsonSerializerOptions { WriteIndented = true });
 
             File.WriteAllText($"RondleidingLog/{dateTime}.json", jsonString);
@@ -58,7 +58,7 @@ public static class DataModel
             FilePathSchedule = $"RondleidingLog/{dateTime}.json";
 
         }
-   
+
 
         string fileContents = Program.world.ReadAllText("" + FilePathSchedule);
 
