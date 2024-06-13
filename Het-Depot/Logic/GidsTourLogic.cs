@@ -21,17 +21,10 @@ public static class GidsTourLogic
         if (GidsInput == "A")
         {
             Program.world.Write("Unieke Code: ");
-            string UniqueId;
-            do
-            {
-                UniqueId = Program.world.ReadLine()!;
-                AddID(UniqueId, tour);
-                Program.world.Write("Press enter");
-            } while (UniqueId != "");
-        }
-        else
-        {
-            Program.world.WriteLine($"{GidsInput} is geen optie, kies tussen A of B");
+            string UniqueId = Program.world.ReadLine()!;
+            AddID(UniqueId, tour);
+            Program.world.Write("Press enter");
+            Console.ReadLine();
         }
     }
 
