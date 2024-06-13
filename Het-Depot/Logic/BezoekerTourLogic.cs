@@ -11,51 +11,23 @@ public static class BezoekerTourLogic
         }
         else if (tour.Spots.Contains(code))
         {
-            Program.world.WriteLine("U heeft al gereserveerd op deze rondleiding");
-            Program.world.WriteLine("Wilt u zich uitschrijven?");
-            Program.world.WriteLine("[Y]: Uitschrijven");
-            Program.world.WriteLine("[N]: Niet uitschrijven");
-            string confirm;
-            do
-            {
-                confirm = Program.world.ReadLine()!.ToLower();
-            } while (confirm != "n" && confirm != "y");
-            if (confirm == "y")
-            {
-                tour.Spots.Remove(code);
-                DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
-                Program.world.WriteLine("Uitschrijven voltooid!");
-                Program.world.WriteLine("Druk Enter");
-                Program.world.ReadLine();
-
-            }
+            Annuleren(code, tour);
 
 
         }
         else if (TourLogic.CheckIfGereserveed(code) != -1)
         {
-            Program.world.WriteLine($"U heeft al gereserveerd op de rondleiding van {DataModel.listoftours[TourLogic.CheckIfGereserveed(code)].Start}");
-            Program.world.WriteLine("Wilt u herboeken naar deze rondleiding?");
-            Program.world.WriteLine("[Y]: Herboeken");
-            Program.world.WriteLine("[N]: Niet herboeken");
-
-            string confirm;
-            do
-            {
-                confirm = Program.world.ReadLine()!.ToLower();
-            } while (confirm != "n" && confirm != "y");
-            if (confirm == "y")
-            {
-                herboeken(code, tour);
-                DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
-                Program.world.WriteLine("Herboeken voltooid!");
-                Program.world.WriteLine("Druk Enter");
-                Program.world.ReadLine();
-            }
+            herboeken(code, tour);
         }
         else
         {
-            Program.world.WriteLine("Wilt u op deze rondleiding een plaats reserveren?");
+            Reserveren(code, tour);
+        }
+    }
+
+    public static void Reserveren(string code, Tour tour)
+    {
+        Program.world.WriteLine("Wilt u op deze rondleiding een plaats reserveren?");
             Program.world.WriteLine("[Y]: Reserveren");
             Program.world.WriteLine("[N]: Niet reserveren");
             string confirm;
@@ -71,18 +43,56 @@ public static class BezoekerTourLogic
                 Program.world.WriteLine("Druk Enter");
                 Program.world.ReadLine();
             }
+    }
+
+    public static void Annuleren(string code, Tour tour)
+    {
+        Program.world.WriteLine("U heeft al gereserveerd op deze rondleiding");
+        Program.world.WriteLine("Wilt u zich uitschrijven?");
+        Program.world.WriteLine("[Y]: Uitschrijven");
+        Program.world.WriteLine("[N]: Niet uitschrijven");
+        string confirm;
+        do
+        {
+            confirm = Program.world.ReadLine()!.ToLower();
+        } while (confirm != "n" && confirm != "y");
+        if (confirm == "y")
+        {
+            tour.Spots.Remove(code);
+            DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
+            Program.world.WriteLine("Uitschrijven voltooid!");
+            Program.world.WriteLine("Druk Enter");
+            Program.world.ReadLine();
+
         }
     }
 
     public static void herboeken(string code, Tour tour)
     {
-        foreach (Tour t in DataModel.listoftours!)
+        Program.world.WriteLine($"U heeft al gereserveerd op de rondleiding van {DataModel.listoftours[TourLogic.CheckIfGereserveed(code)].Start}");
+        Program.world.WriteLine("Wilt u herboeken naar deze rondleiding?");
+        Program.world.WriteLine("[Y]: Herboeken");
+        Program.world.WriteLine("[N]: Niet herboeken");
+
+        string confirm;
+        do
         {
-            if (t.Spots.Contains(code))
+            confirm = Program.world.ReadLine()!.ToLower();
+        } while (confirm != "n" && confirm != "y");
+        if (confirm == "y")
+        {
+            foreach (Tour t in DataModel.listoftours!)
             {
-                t.Spots.Remove(code);
+                if (t.Spots.Contains(code))
+                {
+                    t.Spots.Remove(code);
+                }
             }
+            tour.Spots.Add(code);
+            DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
+            Program.world.WriteLine("Herboeken voltooid!");
+            Program.world.WriteLine("Druk Enter");
+            Program.world.ReadLine();
         }
-        tour.Spots.Add(code);
     }
 }
