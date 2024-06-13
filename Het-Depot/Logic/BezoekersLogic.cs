@@ -4,24 +4,20 @@ public static class BezoekersLogic
     {
         if (keuze == "A")
         {
-            ChooseTour();
+            Program.world.WriteLine("Kies een Rondleiding (id): ");
+            string tourChoice = Program.world.ReadLine()!;
+            foreach (Tour tour in DataModel.listoftours!)
+            {
+                if (tour.Id == tourChoice)
+                {
+                    BezoekerTour.tour = tour;
+                    BezoekerTour.Display();
+                }
+            }
         }
         else if (keuze == "B")
         {
             Bezoeker.BezoekerCode = default;
-        }
-    }
-    public static void ChooseTour()
-    {
-        Program.world.WriteLine("Kies een Rondleiding (id): ");
-        string tourChoice = Program.world.ReadLine()!;
-        foreach (Tour tour in DataModel.listoftours!)
-        {
-            if (tour.Id == tourChoice)
-            {
-                BezoekerTour.tour = tour;
-                BezoekerTour.Display();
-            }
         }
     }
 }
