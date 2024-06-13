@@ -12,13 +12,16 @@ public static class AfdelingshoofdLogic
             foreach (Tour tour in DataModel.listoftours)
             {
                 Program.world.WriteLine($"Rondleiding: {tour.Id} | start om: {tour.Start}, Gids: {tour.GuideCode}");
-                Program.world.WriteLine("Wilt u op deze rondleiding een gids toevoegen\nVoer dan nu de gids code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
+                Program.world.WriteLine("Wilt u op deze rondleiding een gids toevoegen");
+                Program.world.WriteLine("Voer dan nu de gids code in en druk enter");
+                Program.world.WriteLine("Zo niet dan Enter drukken om de volgende rondleiding te zien");
                 string gidscode = Program.world.ReadLine();
                 if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; }
             }
 
             DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
-            Program.world.Write("Gidsen gekoppeld aan de rondleidingen van vandaag\nDruk Enter");
+            Program.world.WriteLine("Gidsen gekoppeld aan de rondleidingen van vandaag");
+            Program.world.WriteLine("Druk Enter");
             Program.world.ReadLine();
         }
         else if (userInput == "B")
@@ -35,7 +38,8 @@ public static class AfdelingshoofdLogic
                 {
                     DataModel.visitorCodes = new List<string>();
                     DataModel.WriteToCurrentDayJSON(DataModel.visitorCodes, "DataSources/UniqueCodesToday.json");
-                    Program.world.WriteLine("Bezoekers codes geleegd\nDruk enter");
+                    Program.world.WriteLine("Bezoekers codes geleegd");
+                    Program.world.WriteLine("Druk Enter");
                     Console.ReadLine();
                 }
                 else if (keuze == "B")
