@@ -12,8 +12,6 @@ public static class BezoekerTourLogic
         else if (tour.Spots.Contains(code))
         {
             Annuleren(code, tour);
-
-
         }
         else if (TourLogic.CheckIfGereserveed(code) != -1)
         {
@@ -28,21 +26,21 @@ public static class BezoekerTourLogic
     public static void Reserveren(string code, Tour tour)
     {
         Program.world.WriteLine("Wilt u op deze rondleiding een plaats reserveren?");
-            Program.world.WriteLine("[Y]: Reserveren");
-            Program.world.WriteLine("[N]: Niet reserveren");
-            string confirm;
-            do
-            {
-                confirm = Program.world.ReadLine()!.ToLower();
-            } while (confirm != "n" && confirm != "y");
-            if (confirm == "y")
-            {
-                tour.Spots.Add(code);
-                DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
-                Program.world.WriteLine("Reserveren voltooid!");
-                Program.world.WriteLine("Druk Enter");
-                Program.world.ReadLine();
-            }
+        Program.world.WriteLine("[Y]: Reserveren");
+        Program.world.WriteLine("[N]: Niet reserveren");
+        string confirm;
+        do
+        {
+            confirm = Program.world.ReadLine()!.ToLower();
+        } while (confirm != "n" && confirm != "y");
+        if (confirm == "y")
+        {
+            tour.Spots.Add(code);
+            DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
+            Program.world.WriteLine("Reserveren voltooid!");
+            Program.world.WriteLine("Druk Enter");
+            Program.world.ReadLine();
+        }
     }
 
     public static void Annuleren(string code, Tour tour)
