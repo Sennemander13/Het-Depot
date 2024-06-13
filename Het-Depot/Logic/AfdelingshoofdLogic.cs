@@ -91,7 +91,7 @@ public static class AfdelingshoofdLogic
                 Program.world.WriteLine("Wat wilt u doen met deze lijst:");
                 Program.world.WriteLine("[A]: Gids toevoegen");
                 Program.world.WriteLine("[B]: Gids verwijderen");
-                Program.world.WriteLine("[C]: terug");
+                Program.world.WriteLine("[C]: Terug");
                 keuze = Program.world.ReadLine().ToUpper();
                 if (keuze == "A")
                 {
@@ -140,7 +140,7 @@ public static class AfdelingshoofdLogic
                         string keuze = Program.world.ReadLine().ToUpper();
                         if (keuze == "A")
                         {
-                            Program.world.Write("Naar welke tijd wilt u de rondleiding verplaatsen (Uur:Minuten): ");
+                            Program.world.Write("Naar welke tijd wilt u de rondleidng verplaatsen (Uur:Minuten): ");
                             string time = Program.world.ReadLine();
                             t.Start = time;
                             Program.world.WriteLine("Tijd veranderd");
