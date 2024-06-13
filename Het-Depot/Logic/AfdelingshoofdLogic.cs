@@ -12,7 +12,7 @@ public static class AfdelingshoofdLogic
             foreach (Tour tour in DataModel.listoftours)
             {
                 Program.world.WriteLine($"Rondleiding: {tour.Id} | start om: {tour.Start}, Gids: {tour.GuideCode}");
-                Program.world.WriteLine("Wilt u op deze rondleidng een gids toevoegen\nVoer dan nu de gids code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
+                Program.world.WriteLine("Wilt u op deze rondleiding een gids toevoegen\nVoer dan nu de gids code in en druk enter\nZo niet dan Enter drukken om de volgende rondleiding te zien");
                 string gidscode = Program.world.ReadLine();
                 if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; }
             }
@@ -140,7 +140,7 @@ public static class AfdelingshoofdLogic
                         string keuze = Program.world.ReadLine().ToUpper();
                         if (keuze == "A")
                         {
-                            Program.world.Write("Naar welke tijd wilt u de rondleidng verplaatsen (Uur:Minuten): ");
+                            Program.world.Write("Naar welke tijd wilt u de rondleiding verplaatsen (Uur:Minuten): ");
                             string time = Program.world.ReadLine();
                             t.Start = time;
                             Program.world.WriteLine("Tijd veranderd");
