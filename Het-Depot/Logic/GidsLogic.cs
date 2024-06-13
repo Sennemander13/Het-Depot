@@ -4,28 +4,21 @@ public static class GidsLogic
     {
         if (keuze == "A")
         {
-            ChooseTour();
+            Program.world.WriteLine("Kies een Rondleiding (id): ");
+            string tourChoice = Program.world.ReadLine()!;
+            foreach (Tour tour in DataModel.listoftours!)
+            {
+                if (tour.Id == tourChoice)
+                {
+                    GidsTour.tour = tour;
+                    GidsTour.Display();
+                }
+            }
         }
-        else if (keuze == "C")
+        else if (keuze == "B")
         {
             Gids.GidsCode = default;
         }
-        else {
-            Program.world.WriteLine("Ongeldige keuze");
-        }
     }
 
-    public static void ChooseTour()
-    {
-        Program.world.WriteLine("Kies een Rondleiding (id): ");
-        string tourChoice = Program.world.ReadLine()!;
-        foreach (Tour tour in DataModel.listoftours!)
-        {
-            if (tour.Id == tourChoice)
-            {
-                GidsTour.tour = tour;
-                GidsTour.Display();
-            }
-        }
-    }
 }

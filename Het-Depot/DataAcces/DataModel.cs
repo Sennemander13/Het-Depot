@@ -72,14 +72,11 @@ public static class DataModel
     {
         try
         {
-
             // Serialize the list to JSON
             string jsonString = JsonSerializer.Serialize(ListToJson);
 
             // Write the JSON string to the file
             File.WriteAllText(FilePath, jsonString);
-
-            // Console.WriteLine($"List has been written to {filePath}");
         }
         catch (Exception ex)
         {
