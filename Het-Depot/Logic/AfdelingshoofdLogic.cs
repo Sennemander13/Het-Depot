@@ -58,7 +58,6 @@ public static class AfdelingshoofdLogic
             Program.world.WriteLine("[B]: Toevoegen");
             Program.world.WriteLine("[C]: Terug");
             keuze = Program.world.ReadLine()!.ToUpper();
-            Console.Clear();
             if (keuze == "A")
             {
                 UniekeCodesLeeghalen();
@@ -108,6 +107,9 @@ public static class AfdelingshoofdLogic
             if (!string.IsNullOrWhiteSpace(code))
             {
                 DataModel.visitorCodes!.Add(code);
+                Program.world.WriteLine("Bezoeker code toegevoegd");
+                Program.world.WriteLine("Druk Enter");
+                Program.world.ReadLine();
             }
         } while (code != "");
         DataModel.WriteToCurrentDayJSON(DataModel.visitorCodes, "DataSources/UniqueCodesToday.json");
@@ -154,6 +156,7 @@ public static class AfdelingshoofdLogic
             {
                 GidsVerwijderen();
             }
+            Console.Clear();
         } while (keuze != "C");
     }
 
