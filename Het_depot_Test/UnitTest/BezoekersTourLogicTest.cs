@@ -4,161 +4,72 @@ using System.Text.Json;
 public class BezoekerTourLogicTest
 {
     [TestMethod]
-    [DataRow("1010,A,1,y,B,quit")]
-    public void TestBookingTour(string inputString)
+    public void TestBookRondleiding()
     {
-        string[] splitArray = inputString.Split(',');
-        FakeWorld world = new()
-        {
-            Now = new DateTime(2004, 08, 25),
-            LinesToRead = new List<string>(splitArray),
-            Files = new()
-            {
-                { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
-                { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
-            }
-        };
+        FakeWorld world = new() { LinesToRead = new List<string>() { "Y", "" } };
         Program.world = world;
 
-        Program.Main();
-        Assert.AreEqual("1", BezoekerTour.tour.Id);
-        Assert.AreEqual(true, world.LinesWritten.Contains("Wilt u op deze rondleiding een plaats reserveren? (y/n)"));
+        BezoekerTourLogic.Reserveren("1111", DataModel.listoftours[1]);
 
-        bool t = false;
-        foreach (Tour tour in DataModel.listoftours)
-        {
-            if (tour.Spots.Contains("1010") && tour.Id == "1")
-            {
-                t = true;
-                break;
-            }
-        }
+        Console.WriteLine(world.LinesWritten.Count);
+        foreach (string t in world.LinesWritten)
+        { Console.WriteLine(t); }
 
-        Assert.AreEqual(true, t);
+        Assert.AreEqual(true, world.LinesWritten.Contains("Wilt u op deze rondleiding een plaats reserveren?"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("[Y]: Reserveren"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Reserveren voltooid!"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Druk Enter"));
+        Assert.AreEqual(true, world.ReadAllText("RondleidingLog/14-06-2024.json").Contains(@"{""Id"":""1"",""Start"":""11:30"",""Spots"":[""1111""],""HasTakenTour"":[],""GuideCode"":""""}"));
+
     }
 
     [TestMethod]
-    [DataRow("1010,A,2,y,B,quit")]
-    public void TestRebook(string inputString)
+    public void TestRebookRondleiding()
     {
-        string[] splitArray = inputString.Split(',');
         FakeWorld world = new()
         {
-            Now = new DateTime(2004, 08, 25),
-            LinesToRead = new List<string>(splitArray),
-            Files = new()
-            {
-                { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
-                { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
-            }
+            LinesToRead = new List<string>() { "Y", "" }
         };
         Program.world = world;
 
-        Program.Main();
+        BezoekerTourLogic.herboeken("1111", DataModel.listoftours[2]);
+        Console.WriteLine(world.LinesWritten.Count);
+        foreach (string t in world.LinesWritten)
+        { Console.WriteLine(t); }
 
-        Assert.AreEqual("2", BezoekerTour.tour.Id);
-        Assert.AreEqual(true, world.LinesWritten.Contains("Wilt u herboeken naar deze rondleiding? (y/n)"));
-        bool t = false;
-        foreach (Tour tour in DataModel.listoftours)
-        {
-            if (tour.Id == "1" && tour.Spots.Contains("1010"))
-            {
-                break;
-            }
-            if (tour.Spots.Contains("1010") && tour.Id == "2")
-            {
-                t = true;
-                break;
-            }
-        }
+        Assert.AreEqual(true, world.LinesWritten.Contains("U heeft al gereserveerd op de rondleiding van 11:30"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Wilt u herboeken naar deze rondleiding?"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("[Y]: Herboeken"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Herboeken voltooid!"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Druk Enter"));
 
-        Assert.AreEqual(true, t);
+        Assert.AreEqual(false, world.ReadAllText("RondleidingLog/14-06-2024.json").Contains(@"{""Id"":""1"",""Start"":""11:30"",""Spots"":[""1111""],""HasTakenTour"":[],""GuideCode"":""""}"));
+        Assert.AreEqual(true, world.ReadAllText("RondleidingLog/14-06-2024.json").Contains(@"{""Id"":""2"",""Start"":""11:50"",""Spots"":[""1111""],""HasTakenTour"":[],""GuideCode"":""""}"));
     }
 
 
     [TestMethod]
-    [DataRow("1010,A,2,y,B,quit")]
-    public void TestCancel(string inputString)
+    public void TestCancel()
     {
-        string[] splitArray = inputString.Split(',');
         FakeWorld world = new()
         {
-            Now = new DateTime(2004, 08, 25),
-            LinesToRead = new List<string>(splitArray),
-            Files = new()
-            {
-                { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-                { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": []}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
-                { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
-            }
+            LinesToRead = new List<string>() { "Y", "" }
         };
         Program.world = world;
 
-        Program.Main();
+        BezoekerTourLogic.Annuleren("1111", DataModel.listoftours[2]);
+        Console.WriteLine(world.LinesWritten.Count);
+        foreach (string t in world.LinesWritten)
+        { Console.WriteLine(t); }
 
-        Assert.AreEqual("2", BezoekerTour.tour.Id);
         Assert.AreEqual(true, world.LinesWritten.Contains("U heeft al gereserveerd op deze rondleiding"));
-        bool t = true;
-        foreach (Tour tour in DataModel.listoftours)
-        {
-            if (tour.Id == "1" && tour.Spots.Contains("1010"))
-            {
-                t = false;
-                break;
-            }
-            if (tour.Spots.Contains("1010") && tour.Id == "2")
-            {
-                t = false;
-                break;
-            }
-        }
+        Assert.AreEqual(true, world.LinesWritten.Contains("Wilt u zich uitschrijven?"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("[Y]: Uitschrijven"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Uitschrijven voltooid!"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Druk Enter"));
 
-        Assert.AreEqual(true, t);
+        Assert.AreEqual(false, world.ReadAllText("RondleidingLog/14-06-2024.json").Contains(@"{""Id"":""2"",""Start"":""11:50"",""Spots"":[""1111""],""HasTakenTour"":[],""GuideCode"":""""}"));
+
     }
 
-
-
-
-    // [TestMethod]
-    // [DataRow("1010,A,1,y,B,quit")]
-    // public void TestHasTakenTour(string inputString)
-    // {
-    //     string[] splitArray = inputString.Split(',');
-    //     // string joinedArray = string.Join(", ", splitArray);
-    //     // Console.WriteLine($"Split array: {joinedArray}");
-
-    //     FakeWorld world = new()
-    //     {
-    //         Now = new DateTime(2004, 08, 25),
-    //         LinesToRead = new List<string>(splitArray),
-    //         Files = new()
-    //         {
-    //             { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\"]" },
-    //             { "DataSources/ListOfTours.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": [\"1010\"]}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": []}]"},
-    //             { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
-    //         }
-    //     };
-    //     Program.world = world;
-    //     Program.Main();
-    //     foreach (string s in world.LinesWritten)
-    //     {Console.WriteLine(s);}
-    //     Assert.AreEqual(true, world.LinesWritten.Contains("11:40 - 12:20 is geselecteerd"));
-    //     Assert.AreEqual(true, world.LinesWritten.Contains("U heeft al een rondleiding gedaan"));
-    //     bool t = true;
-    //     foreach (Tour tour in DataModel.listoftours)
-    //     {
-    //         if (tour.Id == "1" && tour.Spots.Contains("2222"))
-    //         {
-    //             t = false;
-    //             break;
-    //         }
-    //         if (tour.HasTakenTour.Contains("1010"))
-    //         {
-    //             t = false;
-    //             break;
-    //         }
-    //     }
-    // }
 }
