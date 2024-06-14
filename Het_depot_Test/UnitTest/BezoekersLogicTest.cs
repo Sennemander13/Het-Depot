@@ -30,6 +30,7 @@ public class BezoekerLogicTest
         Program.world = world;
 
         Program.Main();
+        Assert.AreEqual(true, world.LinesWritten.Contains("Welkom, 1111"))
         Assert.AreEqual(false, world.LinesWritten.Contains("Welkom, 1000"));
     }
 
