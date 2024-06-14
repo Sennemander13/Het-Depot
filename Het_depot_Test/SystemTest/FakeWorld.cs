@@ -25,7 +25,7 @@ public class FakeWorld : IWorld
     {
         LinesWritten.Add(line);
     }
-
+    
     public List<string> LinesToRead { private get; set; } = new List<string>();
 
     public string ReadLine()
@@ -37,7 +37,7 @@ public class FakeWorld : IWorld
 
     public Dictionary<string, string> Files = new()
     {
-        { "DataSources/UniqueCodesToday.json", "[\"1111\",\"4444\",\"2222\",\"3333\"]" },
+        { "DataSources/UniqueCodesToday.json", "[\"1111\",\"4444\",\"2222\",\"3333\",\"1000\",\"0101\"]" },
         { "DataSources/beep-07a.wav", ""},
         { "DataSources/GidsCodes.json", "[\"2\",\"3\",\"4\",\"5\"]" },
         { "DataSources/RondleidingLogNames.json", "[\"RondleidingLog/14-06-2024.json\",\"RondleidingLog/13-06-2024.json\"]"},
