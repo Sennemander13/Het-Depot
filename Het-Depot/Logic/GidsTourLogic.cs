@@ -43,10 +43,10 @@ public static class GidsTourLogic
                 }
                 tour!.HasTakenTour.Add(number);
                 DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
-                SoundPlayer soundPlayer = new SoundPlayer("DataSources/beep-07a.wav");
-                soundPlayer.Play();
-                // zorgt dat de applicatie niet opeens afsluit tijdens afspelen
-                while (soundPlayer.IsLoadCompleted == false) { }
+                // SoundPlayer soundPlayer = new SoundPlayer("DataSources/beep-07a.wav");
+                // soundPlayer.Play();
+                // // zorgt dat de applicatie niet opeens afsluit tijdens afspelen
+                // while (soundPlayer.IsLoadCompleted == false) { }
                 Program.world.WriteLine("Bezoeker is ingecheckt voor rondleiding");
             }
             else { Program.world.WriteLine("Bezoeker heeft al een rondleiding gehad"); }
