@@ -6,7 +6,7 @@ public static class DataModel
     public static List<string> visitorCodes;
     public static List<string> guideCodes;
 
-    public static string FilePathSchedule = "RondleidingLog/default.json";
+    public static string FilePathSchedule;
     static DataModel()
     {
         getListOfTours();
@@ -20,9 +20,9 @@ public static class DataModel
         string dateTime = date.ToString("dd-MM-yyy");
         List<string> logEntries;
 
-        if (File.Exists("DataSources/RondleidingLogNames.json"))
+        if (Program.world.Exists("DataSources/RondleidingLogNames.json"))
         {
-            string existingJson = File.ReadAllText("DataSources/RondleidingLogNames.json");
+            string existingJson = Program.world.ReadAllText("DataSources/RondleidingLogNames.json");
             logEntries = JsonSerializer.Deserialize<List<string>>(existingJson) ?? new List<string>();
         }
         else
@@ -50,10 +50,10 @@ public static class DataModel
             }
             string jsonString = JsonSerializer.Serialize(tours, new JsonSerializerOptions { WriteIndented = true });
 
-            File.WriteAllText($"RondleidingLog/{dateTime}.json", jsonString);
+            Program.world.WriteAllText($"RondleidingLog/{dateTime}.json", jsonString);
             string filePath = $"RondleidingLog/{dateTime}.json";
             logEntries.Add(filePath);
-            File.WriteAllText("DataSources/RondleidingLogNames.json", JsonSerializer.Serialize(logEntries, new JsonSerializerOptions { WriteIndented = true }));
+            Program.world.WriteAllText("DataSources/RondleidingLogNames.json", JsonSerializer.Serialize(logEntries, new JsonSerializerOptions { WriteIndented = true }));
 
             FilePathSchedule = $"RondleidingLog/{dateTime}.json";
 
@@ -76,7 +76,7 @@ public static class DataModel
             string jsonString = JsonSerializer.Serialize(ListToJson);
 
             // Write the JSON string to the file
-            File.WriteAllText(FilePath, jsonString);
+            Program.world.WriteAllText(FilePath, jsonString);
         }
         catch (Exception ex)
         {

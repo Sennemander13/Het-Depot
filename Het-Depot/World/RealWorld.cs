@@ -36,6 +36,11 @@ public class RealWorld : IWorld
         File.WriteAllText(path, contents);
     }
 
+    public bool Exists(string path)
+    {
+        return File.Exists(path);
+    }
+
     public void Write(string text)
     {
         Console.Write(text);
