@@ -1,78 +1,27 @@
-namespace Het_depot_Test;
-
 [TestClass]
-public class GidsTest
+public class GidsTest2
 {
 
     [TestMethod]
-    [DataRow("2,A,1,A,1111,1010,,B,C,quit")]
-    public void TestGidsRondleidingStarten(string inputString)
+    public void TestGidsRondleidingStarten()
     {
-        string[] splitArray = inputString.Split(',');
         FakeWorld world = new()
         {
-            Now = new DateTime(2024, 05, 15),
-            LinesToRead = new List<string>(splitArray),
-            Files = new()
-            {
-                { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\", \"2222\", \"3333\"]" },
-                { "RondleidingLog/default.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}]"},
-                { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
-            }
+            LinesToRead = new List<string>() { "2", "A", "5", "A", "2222", "", "A", "4444", "", "B", "B", "quit" }
         };
         Program.world = world;
-
         Program.Main();
-
-        Assert.AreEqual(true, world.LinesWritten.Contains("                             1111"));
-        Assert.AreEqual(true, world.LinesWritten.Contains("                             1010"));
-        // Assert.AreEqual(true, )
+        foreach (string l in world.LinesWritten)
+        {
+            Console.WriteLine(l);
+        }
+        Assert.AreEqual(true, GidsTour.tour == DataModel.listoftours[5]);
+        Assert.AreEqual(true, world.LinesWritten.Contains("Kies een Rondleiding (id): "));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Wilt u op deze rondleiding een plaats reserveren?"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Bezoeker is ingecheckt voor rondleiding"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("Code is geldig"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("2222                         2222"));
+        Assert.AreEqual(true, world.LinesWritten.Contains("                             4444"));
     }
 
-    // [TestMethod]
-    // [DataRow("2,A,1,A,1111,,A,1010,,B,C,quit")]
-    // public void TestGidsystem(string inputString)
-    // {
-    //     string[] splitArray = inputString.Split(',');
-    //     FakeWorld world = new()
-    //     {
-    //         Now = new DateTime(2024, 05, 15),
-    //         LinesToRead = new List<string>(splitArray),
-    //         Files = new()
-    //         {
-    //             { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\", \"2222\", \"3333\"]" },
-    //             { "RondleidingLog/2024-05-15-2024-06-05.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}]"},
-    //             { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
-    //         }
-    //     };
-    //     Program.world = world;
-
-    //     Program.Main();
-
-
-    // }
-
-    // [TestMethod]
-    // [DataRow("")]
-    // public void TestGidsystem(string inputString)
-    // {
-    //     string[] splitArray = inputString.Split(',');
-    //     FakeWorld world = new()
-    //     {
-    //         Now = new DateTime(2024, 05, 15),
-    //         LinesToRead = new List<string>(splitArray),
-    //         Files = new()
-    //         {
-    //             { "DataSources/UniqueCodesToday.json", "[\"1111\", \"1010\", \"2222\", \"3333\"]" },
-    //             { "RondleidingLog/2024-05-15-2024-06-05.json", "[{\"Id\": \"1\", \"Start\": \"11:40\", \"End\": \"12:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}, {\"Id\": \"2\", \"Start\": \"12:40\", \"End\": \"13:20\", \"Spots\": [], \"HasTakenTour\": [], \"GuideCode\": \"\"}]"},
-    //             { "DataSources/GidsCodes.json", "[\"1\", \"2\"]"}
-    //         }
-    //     };
-    //     Program.world = world;
-
-    //     Program.Main();
-
-
-
-    // }
 }
