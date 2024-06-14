@@ -32,8 +32,8 @@ public static class AfdelingshoofdLogic
             Program.world.WriteLine("Voer dan nu de gids code in en druk enter");
             Program.world.WriteLine("Zo niet dan Enter drukken om de volgende rondleiding te zien");
             string gidscode = Program.world.ReadLine();
-            if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; Program.world.WriteLine($"Gids {gidscode} gekoppeld aan rondleiding van {tour.Start}");}
-            else {Program.world.WriteLine("Gids code niet gekoppeld");}
+            if (gidscode != "" && BaseLogic.IsValidCode(gidscode, DataModel.guideCodes)) { tour.GuideCode = gidscode; Program.world.WriteLine($"Gids {gidscode} gekoppeld aan rondleiding van {tour.Start}"); }
+            else { Program.world.WriteLine("Gids code niet gekoppeld"); }
             Console.WriteLine("Druk enter om naar de volgende rondleiding te gaan");
             Program.world.ReadLine();
         }
@@ -123,7 +123,7 @@ public static class AfdelingshoofdLogic
         Program.world.WriteLine("Format: code,code,code,...");
         Program.world.WriteLine("Voer codes in zoals gedaan in Format:");
         string codes = Program.world.ReadLine()!.ToLower();
-        if (codes == "") {Program.world.WriteLine("Geen codes toegevoegd"); return;}
+        if (codes == "") { Program.world.WriteLine("Geen codes toegevoegd"); return; }
         List<string> visitorCodes = codes.Replace(" ", "").Split(",").ToList();
         foreach (string code in visitorCodes)
         { if (code != "" && !(code.Contains(" "))) DataModel.visitorCodes!.Add(code); }
@@ -189,7 +189,8 @@ public static class AfdelingshoofdLogic
     private static void SchemaAanpassen()
     {
         string choice;
-        do {
+        do
+        {
             Console.Clear();
             BaseLogic.DisplayRondleidingen("afdelingshoofd");
             Program.world.WriteLine("[A]: Rondleiding toevoegen");
@@ -234,7 +235,7 @@ public static class AfdelingshoofdLogic
         string start = Program.world.ReadLine();
         DataModel.listoftours.Add(new Tour(Convert.ToString(Convert.ToInt32(DataModel.listoftours.Last().Id) + 1), start, new List<string>(), new List<string>()));
         Program.world.WriteLine("Rondleiding toegevoegd");
-        DataModel.listoftours = DataModelc.listoftours.OrderBy(x => x.Start).ToList();
+        DataModel.listoftours = DataModel.listoftours.OrderBy(x => x.Start).ToList();
         DataModel.WriteToCurrentDayJSON(DataModel.listoftours, DataModel.FilePathSchedule);
         Program.world.WriteLine("Druk Enter");
         Program.world.ReadLine();
